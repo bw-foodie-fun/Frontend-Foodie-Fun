@@ -1,0 +1,8 @@
+[build]
+base = "foodiefun/"
+publish = "foodiefun/build/"
+command = "yarn build"
+
+[[redirects]]
+from="/*"
+ to="foodiefun/public/index.html"
