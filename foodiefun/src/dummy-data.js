@@ -9,6 +9,7 @@ const dummyData = [
       item_comment: "Wow, pizza was so good! I really enjoyed it!",
       wait_time: "About 10 minutes.",
       date_visited: "2018-11-02",
+      id:1,
     },
     {
       restaurant_name: "Taco Shop",
@@ -20,6 +21,7 @@ const dummyData = [
       item_comment: "These tacos were awesome!",
       wait_time: "There was no wait!",
       date_visited: "2018-07-22",
+      id: 2,
     },
     {
       restaurant_name: "Burger Joint",
@@ -31,6 +33,7 @@ const dummyData = [
       item_comment: "The burger was a bit overcooked.",
       wait_time: "There was a 5 minute wait.",
       date_visited: "2018-08-21",
+      id: 3,
     },
   ]
 
