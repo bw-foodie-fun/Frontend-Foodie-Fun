@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import dummyData from "../../dummy-data";
 import AccountMenu from "./AccountMenu/AccountMenu";
+import RestaurantList from './RestaurantList';
 
 export default class PostPage extends Component {
   constructor() {
@@ -30,6 +31,7 @@ export default class PostPage extends Component {
                 this.state.account === false ? "X" : "X"
               }
             />
+            <RestaurantList data={this.state.data}/>
           </div>
           <AccountMenu account={this.state.account} />
         </div>
