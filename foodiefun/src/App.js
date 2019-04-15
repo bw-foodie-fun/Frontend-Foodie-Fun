@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import PostPage from './components/postcontainer/PostPage';
+import Login from './components/login/Login'
 import './App.css';
+import withAuthenticate from './components/authenticate/withAuthenticate';
+
+const Auth = withAuthenticate(Login)(PostPage);
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-      <h1>content content content</h1>
-      </div>
-    );
+    return <Auth />;
   }
 }
 
