@@ -14,7 +14,10 @@ export default class PostPage extends Component {
 
   componentDidMount() {
     this.setState({
-      data:dummyData  
+      data:
+        localStorage.getItem("data") === null
+          ? dummyData
+          
     });
   }
 
