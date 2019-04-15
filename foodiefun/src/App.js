@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <>
         <Route exact path="/" component={Auth}/>
-        <Route path="/restaurant" render={props => <RestaurantPage {...props}/>}/>
+        <Route path="/restaurant/:id" render={props => <RestaurantPage {...props}  />}/>
       </>
     )
   }
