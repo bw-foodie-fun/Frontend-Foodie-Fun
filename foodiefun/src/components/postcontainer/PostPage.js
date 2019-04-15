@@ -24,6 +24,7 @@ export default class PostPage extends Component {
   render() {
       return (
         <div>
+          <AccountMenu account={this.state.account} />
           <div>
             <i
               onClick={() => this.setState({ account: !this.state.account })}
@@ -33,7 +34,6 @@ export default class PostPage extends Component {
             />
             <RestaurantList data={this.state.data}/>
           </div>
-          <AccountMenu account={this.state.account} />
         </div>
       );
     }
