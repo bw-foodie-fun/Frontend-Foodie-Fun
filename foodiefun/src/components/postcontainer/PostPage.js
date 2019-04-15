@@ -8,16 +8,13 @@ export default class PostPage extends Component {
     super();
     this.state = {
       account: true,
-      data: []
+      data: dummyData
     };
   }
 
   componentDidMount() {
     this.setState({
-      data:
-        localStorage.getItem("data") === null
-          ? dummyData
-          : JSON.parse(localStorage.getItem("data"))
+      data:dummyData  
     });
   }
 
