@@ -6,7 +6,7 @@ export default class PostPage extends Component {
   constructor() {
     super();
     this.state = {
-      account: false,
+      account: true,
       data: []
     };
   }
