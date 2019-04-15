@@ -1,7 +1,6 @@
 import React from 'react';
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import RestaurantCard from './RestaurantCard';
-import RestaurantPage from './RestaurantPage'
 
 const RestaurantList = props => {
     return (
@@ -15,9 +14,6 @@ const RestaurantList = props => {
                     food_rating={item.food_rating}
                 /></Link>
             ))}
-            <Route path="/restaurant" render={props => {
-                return(<RestaurantPage {...props}/>)
-            }}/>
         </div>
     )
 }
