@@ -15,7 +15,9 @@ const RestaurantList = props => {
                     food_rating={item.food_rating}
                 /></Link>
             ))}
-            <Route path="/restaurant" component={RestaurantPage}/>
+            <Route path="/restaurant" render={props => {
+                return(<RestaurantPage {...props}/>)
+            }}/>
         </div>
     )
 }
