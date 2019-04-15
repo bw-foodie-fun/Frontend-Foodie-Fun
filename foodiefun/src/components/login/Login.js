@@ -42,8 +42,8 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div fade>
-        <div login>
+      <div>
+        <div>
           <h1>Log In:</h1>
           <form onSubmit={this.login} className="login">
             <input

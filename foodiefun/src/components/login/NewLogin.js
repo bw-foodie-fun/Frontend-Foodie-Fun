@@ -36,9 +36,9 @@ export default class NewLogin extends Component {
     render() {
         console.log(this.props)
         return (
-            <div fade>
-                <div login>
-                    <h1>New User:</h1>
+            <div>
+                <div>
+                    <h1>Register:</h1>
                     <form onSubmit={this.newUser}>
                         <input
                             placeholder='Username'

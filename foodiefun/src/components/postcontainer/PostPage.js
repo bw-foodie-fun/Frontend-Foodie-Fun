@@ -26,12 +26,6 @@ export default class PostPage extends Component {
         <div>
           <AccountMenu account={this.state.account} />
           <div>
-            <i
-              onClick={() => this.setState({ account: !this.state.account })}
-              className={
-                this.state.account === false ? "X" : "X"
-              }
-            />
             <RestaurantList data={this.state.data}/>
           </div>
         </div>
