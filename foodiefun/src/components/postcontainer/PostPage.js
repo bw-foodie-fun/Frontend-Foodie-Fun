@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import ReviewSection from './../reviews/ReviewSection';
 
 import AccountMenu from "./AccountMenu/AccountMenu";
 import RestaurantList from './RestaurantList';
@@ -31,6 +32,7 @@ export default class PostPage extends Component {
           <AccountMenu account={this.state.account} />
           <div>
             <RestaurantList data={this.state.data}/>
+            <ReviewSection reviewData={this.state.reviewData}/>
           </div>
         </div>
       );
