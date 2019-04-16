@@ -38,6 +38,7 @@ class App extends Component {
             <Auth
               {...props}
               data={this.state.data}
+              account={this.state.account}
             />
           }
         />
