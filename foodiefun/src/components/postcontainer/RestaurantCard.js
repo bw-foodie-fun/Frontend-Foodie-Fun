@@ -7,6 +7,9 @@ const RestaurantCard = props => {
             <p>{props.restaurant_type}</p>
             <img src={props.item_photo} alt="Restaurant"/>
             <p>Rating: {props.food_rating}</p>
+            <p>Date Visited: {props.date_visited}</p>
+            <p>Wait Time: {props.wait_time}</p>
+            <p>Comment: {props.comment}</p>
         </div>
     )
 }

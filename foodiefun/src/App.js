@@ -43,7 +43,6 @@ class App extends Component {
 
   componentDidMount() {
     const token = localStorage.getItem('token');
-
     const requestOptions = {
       headers: {
         authorization: token
