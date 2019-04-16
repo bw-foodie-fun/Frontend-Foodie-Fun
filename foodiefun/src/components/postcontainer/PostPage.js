@@ -6,14 +6,6 @@ import RestaurantList from './RestaurantList';
 import NavBar from './NavBar'
 
 const PostPage = props => {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     account: true,
-  //     data: []
-  //   };
-  // }
-
     return (
       <div>
         <NavBar/>

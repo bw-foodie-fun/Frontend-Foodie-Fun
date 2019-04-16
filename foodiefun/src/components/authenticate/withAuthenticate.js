@@ -21,7 +21,7 @@ const withAuthenticate = Login => PostPage =>
                     <Login
                         loggedIn={this.state.loggedIn}
                         login={this.login}
-                    /> : <PostPage data={this.props.data} />
+                    /> : <PostPage account={this.props.account} data={this.props.data} />
             );
         }
     };
