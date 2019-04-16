@@ -5,9 +5,9 @@ class Review extends React.Component {
     return (
       <div>
         <span className="item">
-          <strong>{this.props.reviewData.item_name} </strong>
+          <strong>{this.props.reviewData.username} </strong>
         </span>
-        <span className="reviews">{this.props.reviewData.item_comment}</span>
+        <span className="reviews">{this.props.reviewData.text}</span>
       </div>
     );
   }

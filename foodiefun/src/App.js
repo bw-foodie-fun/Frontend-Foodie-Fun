@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       account: true,
       data: [],
-      reviewData: "",
+      reviewData: [],
       inputText: ""
     };
   }
@@ -31,7 +31,7 @@ class App extends Component {
     const stateCopy = this.state.reviewData.slice();
     //second create the new review
     const newReview = {
-      username: "",
+      username: "ilovefood",
       text: this.state.inputText
     };
     stateCopy.push(newReview);
@@ -69,7 +69,9 @@ class App extends Component {
         <Route exact path="/newlogin" component={NewLogin} />
         <Route
           path="/restaurant/:id"
-          render={props => <RestaurantPage {...props} data={this.state.data} />}
+          render={props => <RestaurantPage {...props} data={this.state.data} 
+          handleSubmit={this.handleSubmit} handleChange={this.handleChange} 
+          inputText={this.inputText} reviewData={this.state.reviewData}/>}
         />
       </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ReviewSection from '../reviews/ReviewSection';
 const RestaurantPage = props => {
 
     // componentDidMount() {
@@ -19,6 +19,8 @@ const RestaurantPage = props => {
             <p>{props.data.date_visited}</p>
             <p>{props.data.wait_time}</p>
             <p>{props.data.item_comment}</p>
+            <ReviewSection handleSubmit={props.handleSubmit} handleChange={props.handleChange} 
+          inputText={props.inputText} reviewData={props.reviewData}/>
         </div>
     )
 
