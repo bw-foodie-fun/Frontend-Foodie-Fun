@@ -11,10 +11,10 @@ const Auth = withAuthenticate(Login)(PostPage);
 class App extends Component {
   render() {
     return (
-      <>
+      <div>
         <Route exact path="/" component={Auth}/>
-        <Route path="/restaurant/:id" render={props => <RestaurantPage {...props}  />}/>
-      </>
+        <Route path="/restaurant/:id" component={RestaurantPage}/>
+      </div>
     )
   }
 }
