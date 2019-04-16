@@ -1,15 +1,21 @@
 import React from "react";
 
-
-class NavBar extends React.Component {
-  render() {
+const NavBar = props =>  {
     return (
-      <div className="navBar">
-        FoodieFun 
-        <input placeholder="Search" name="Search" />
+      <div>
+        <h3>FoodieFun</h3>
+        <form onSubmit={props.searchSubmit}>
+        <button>Submit</button>
+          <input
+            type="text"
+            placeholder="Search.."
+            onChange={props.searchChange}
+            value={props.searchInputText}
+          />
+        </form>
       </div>
     );
   }
-}
+
 
 export default NavBar;
