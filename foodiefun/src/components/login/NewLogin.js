@@ -55,8 +55,6 @@ export default class NewLogin extends Component {
                         />
                         <button>Submit</button>
                     </form>
-                    <button
-                    >Return to Login</button>
                 </div>
             </div>
         )

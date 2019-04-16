@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import Users from "../../users";
-import NewLogin from "./NewLogin";
+
 
 export default class Login extends Component {
   constructor(props) {
@@ -69,7 +69,6 @@ export default class Login extends Component {
           >
             New user?
           </Link>
-          <Route exact path="/newlogin" component={NewLogin} />
         </div>
       </div>
     );
