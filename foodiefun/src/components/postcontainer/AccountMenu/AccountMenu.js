@@ -1,16 +1,16 @@
-import React from 'react';
+// import React from 'react';
 
 
-const AccountMenu = props => {
-    return (
-        <div
-            className='accMenu'
-            style={{ display: props.account === false ? 'none' : 'flex' }}
-        >
-            <span>{JSON.parse(localStorage.getItem('user')).username}</span>
-            <button onClick={() => localStorage.removeItem('user') & window.location.reload()}>Logout</button>
-        </div>
-    )
-}
+// const AccountMenu = props => {
+//     return (
+//         <div
+//             className='accMenu'
+//             style={{ display: props.account === false ? 'none' : 'flex' }}
+//         >
+//             <span>{JSON.parse(localStorage.getItem('user')).username}</span>
+//             <button onClick={() => localStorage.removeItem('user') & window.location.reload()}>Logout</button>
+//         </div>
+//     )
+// }
 
-export default AccountMenu;
+// export default AccountMenu;

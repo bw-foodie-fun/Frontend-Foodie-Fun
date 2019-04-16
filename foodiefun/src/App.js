@@ -42,14 +42,41 @@ class App extends Component {
   }; 
 
   componentDidMount() {
-    axios
-      .get("https://foodie-fun.herokuapp.com/api/meals/all")
+    const token = localStorage.getItem('token');
+
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    }
+    
+    axios.get("https://foodie-fun.herokuapp.com/api/meals", requestOptions)
       .then(res => {
         this.setState({ data: res.data });
       })
       .catch(err => {
         alert(err);
       });
+  }
+
+  handleSignIn = credentials => {
+    axios.post('https://foodie-fun.herokuapp.com/api/auth/login', credentials)
+      .then(res => {
+        localStorage.setItem('token', res.data.token)
+      })
+      .catch(err => {
+        alert(err)
+      })
+  }
+
+  handleSignUp = newCredentials => {
+    axios.post('https://foodie-fun.herokuapp.com/api/auth/register', newCredentials)
+      .then(res => {
+        localStorage.setItem('token', res.data.token)
+      })
+      .catch(err => {
+        alert(err)
+      })
   }
 
   render() {
@@ -63,10 +90,15 @@ class App extends Component {
               {...props}
               data={this.state.data}
               account={this.state.account}
+              handleSignIn={this.handleSignIn}
             />
           )}
         />
-        <Route exact path="/newlogin" component={NewLogin} />
+        <Route
+          exact path="/newlogin"
+          component={NewLogin}
+          handleSignUp={this.handleSignUp}
+        />
         <Route
           path="/restaurant/:id"
           render={props => <RestaurantPage {...props} data={this.state.data} 
