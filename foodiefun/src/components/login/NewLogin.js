@@ -6,23 +6,18 @@ export default class NewLogin extends Component {
         super(props);
         this.state = {
             username: '',
-            password: '',
-            users: this.props.location.state.users
+            password: ''
         }
     }
 
     newUser = e => {
         e.preventDefault();
         const newUser = {
-            id: Date.now(),
             username: this.state.username,
             password: this.state.password
         }
-
-        localStorage.setItem('users', JSON.stringify([...this.state.users, newUser]));
-
-        this.props.history.goBack();
-
+        this.props.handleSignUp(newUser);
+        this.props.history.push('/');
     }
 
     componentWillUnmount() {

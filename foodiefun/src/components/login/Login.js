@@ -9,31 +9,12 @@ export default class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      users:
-        JSON.parse(localStorage.getItem("users")) === null
-          ? Users
-          : JSON.parse(localStorage.getItem("users"))
     };
   }
 
   login = e => {
     e.preventDefault();
-    if (
-      this.state.users.filter(
-        user =>
-          user.username === this.state.username &&
-          user.password === this.state.password
-      ).length > 0
-    ) {
-      localStorage.setItem("user", JSON.stringify(this.state));
-      this.props.login();
-    } else {
-      alert("Invalid Username and/or Password");
-      this.setState({
-        username: "",
-        password: ""
-      });
-    }
+    this.props.handleSignIn(this.state)
   };
 
   handleChanges = e => {
@@ -63,8 +44,7 @@ export default class Login extends Component {
           </form>
           <Link
             to={{
-              pathname: "/newlogin",
-              state: { users: this.state.users }
+              pathname: "/newlogin"
             }}
           >
             New user?

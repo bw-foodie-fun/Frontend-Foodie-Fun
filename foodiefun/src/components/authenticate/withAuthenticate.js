@@ -5,7 +5,7 @@ const withAuthenticate = Login => PostPage =>
         constructor(props) {
             super(props);
             this.state = {
-                loggedIn: localStorage.getItem('user') === null ? false : true
+                loggedIn: localStorage.getItem('token') === null ? false : true
             }
         }
 
@@ -21,6 +21,7 @@ const withAuthenticate = Login => PostPage =>
                     <Login
                         loggedIn={this.state.loggedIn}
                         login={this.login}
+                        handleSignIn={this.props.handleSignIn}
                     /> : <PostPage account={this.props.account} data={this.props.data} />
             );
         }

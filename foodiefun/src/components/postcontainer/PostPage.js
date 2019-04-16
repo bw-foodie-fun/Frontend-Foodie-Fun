@@ -9,7 +9,7 @@ const PostPage = props => {
     return (
       <div>
         <NavBar/>
-        <AccountMenu account={props.account} />
+        {/* <AccountMenu account={props.account} /> */}
         <div>
           <RestaurantList data={props.data}/>
           {/* <ReviewSection reviewData={props.reviewData}/> */}
