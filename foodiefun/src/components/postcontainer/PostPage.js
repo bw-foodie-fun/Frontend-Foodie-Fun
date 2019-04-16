@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import dummyData from "../../dummy-data";
+import axios from 'axios';
+
 import AccountMenu from "./AccountMenu/AccountMenu";
 import RestaurantList from './RestaurantList';
 import NavBar from './NavBar'
@@ -9,14 +10,18 @@ export default class PostPage extends Component {
     super();
     this.state = {
       account: true,
-      data: dummyData
+      data: []
     };
   }
 
   componentDidMount() {
-    this.setState({
-      data:dummyData  
-    });
+    axios.get('https://foodie-fun.herokuapp.com/api/meals/all')
+      .then(res => {
+        this.setState({data: res.data})
+      })
+      .catch(err => {
+        alert(err)
+      })
   }
 
   render() {

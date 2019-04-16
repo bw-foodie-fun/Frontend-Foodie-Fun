@@ -6,8 +6,7 @@ const RestaurantList = props => {
     return (
         <div className="restaurant-list">
             {props.data.map(item => (
-                <Link to="/restaurant"><RestaurantCard
-                    key={Math.random()} //Placeholder until items are assigned IDs
+                <Link to={`/restaurant/${item.id}`} key={item.id}><RestaurantCard
                     restaurant_name={item.restaurant_name}
                     restaurant_type={item.restaurant_type}
                     item_photo={item.item_photo}

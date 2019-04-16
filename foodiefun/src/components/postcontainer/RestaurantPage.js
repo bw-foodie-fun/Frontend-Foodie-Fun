@@ -1,30 +1,35 @@
 import React from 'react';
-import RestaurantCard from './RestaurantCard';
 import dummyData from '../../dummy-data';
-
+import axios from 'axios';
 
 class RestaurantPage extends React.Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
-        data: dummyData[0]
-      }} 
+        data: []
+        }
+    } 
 
-      componentDidMount() {
-          console.log("hi")
-      }
+    componentDidMount() {
+        axios.get(`https://foodie-fun.herokuapp.com/api/meals/all`)
+            .then(res => {
+                this.setState({data: res.data[this.props.match.params.id - 1]})
+            })
+    }
 
-      render() {
-        console.log(this.state)
-
-    return (
-        <div>
-            <h1>RestaurantPage</h1>
-            <RestaurantCard restaurant_name={this.state.data.restaurant_name} 
-            restaurant_type={this.state.data.restaurant_type} item_photo={this.state.data.item_photo} 
-            food_rating={this.state.data.food_rating}/>
-        </div>
-    )
+    render() {
+        return (
+            <div>
+                <h3>{this.state.data.restaurant_name}</h3>
+                <p>{this.state.data.restaurant_type}</p>
+                <p>{this.state.data.item_name}</p>
+                <img src={this.state.data.item_photo} alt="Food item"/>
+                <p>Rating: {this.state.data.food_rating}</p>
+                <p>{this.state.data.date_visited}</p>
+                <p>{this.state.data.wait_time}</p>
+                <p>{this.state.data.item_comment}</p>
+            </div>
+        )
     }
 }
 
