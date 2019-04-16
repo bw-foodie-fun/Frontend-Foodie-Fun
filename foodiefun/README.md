@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technical Design Document
+- https://docs.google.com/document/d/1O0dZghZrKlzDHuwb0utEkL4NPVdKbiURPzvLIYTJ_s4/edit
 
-## Available Scripts
+## Front End
 
-In the project directory, you can run:
+- [https://foodie-fun.netlify.com](https://foodie-fun.netlify.com)
 
-### `npm start`
+## Back End
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [https://foodie-fun.herokuapp.com/](https://foodie-fun.herokuapp.com/)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## WebUI Links
+- https://bw-foodie-fun.github.io/UI-JT/
+- third
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
 
-### `npm run build`
+### Front End
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js
+- [React Router](https://reacttraining.com/react-router/web/guides/quick-start) - Routing Library
+- [Styled Components](https://www.styled-components.com/) - Styling library for CSS in JS
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Back End
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Node.js](https://nodejs.org/) - Back end JavaScript runtime
+- [BCryptJS](https://www.npmjs.com/package/bcryptjs) - Module to hash passwords
+- [cors](https://www.npmjs.com/package/cors) - package for providing a Express middleware that can be used to enable CORS
+- [expressjs](https://expressjs.com/) - Node.js framework
+- [json web token](https://www.npmjs.com/package/jsonwebtoken) - Implements JSON web tokens
+- [knex.js](https://knexjs.org/) - SQL query builder
+- [sqlite3](https://www.sqlite.org/index.html) - Library that implements SQL database engine
 
-### `npm run eject`
+## WebUI
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+|                                   [**Erik Sandoval**](https://github.com/MAmaya1)                                   |                                 [**Josh Timmons**](https://github.com/CarloC24)                                  |
+| :-----------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars0.githubusercontent.com/u/48698089?s=200" width="200">](https://github.com/erik-sandoval) | [<img src="https://avatars2.githubusercontent.com/u/46380757?s=200" width="200">](https://github.com/josh182014) |
+|          [<img src="https://github.com/favicon.ico" width="15"> Github](https://github.com/erik-sandoval)           |          [<img src="https://github.com/favicon.ico" width="15"> Github](https://github.com/josh182014)           |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Frontend Developers
 
-## Learn More
+|                           [**Mario Amaya**](https://github.com/MAmaya1)                           |                          [**Mary Sabol**](https://github.com/CarloC24)                          |
+| :-----------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars3.githubusercontent.com/u/42827064?s=200">](https://github.com/MAmaya1) | [<img src="https://avatars3.githubusercontent.com/u/47530560?s=200">](https://github.com/ntsum) |
+|    [<img src="https://github.com/favicon.ico" width="15"> Github](https://github.com/MAmaya1)     |    [<img src="https://github.com/favicon.ico" width="15"> Github](hhttps://github.com/ntsum)    |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Backend Developers
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+|                           [**Aman Singh**](https://github.com/asingh714)                            |                            [**Laryna B**](https://github.com/larynab)                             |
+| :-------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars2.githubusercontent.com/u/17938196?s=400">](https://github.com/asingh714) | [<img src="https://avatars0.githubusercontent.com/u/17423410?s=200">](https://github.com/larynab) |
+|    [<img src="https://github.com/favicon.ico" width="15"> Github](https://github.com/asingh714)     |    [<img src="https://github.com/favicon.ico" width="15"> Github](https://github.com/larynab)     |
