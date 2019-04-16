@@ -23,7 +23,7 @@ class ReviewSection extends React.Component {
       text: this.state.inputText
     };
     stateCopy.push(newReview);
-    //third update the state withj setState
+    //third update the state with setState
     this.setState({
       reviewData: stateCopy
     });
