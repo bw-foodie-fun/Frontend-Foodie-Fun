@@ -3,9 +3,12 @@ import {Link} from 'react-router-dom';
 import RestaurantCard from './RestaurantCard';
 
 const RestaurantList = props => {
+    const {filtered,data} = props
+    const restaurant = filtered.length === 0 ? data : filtered
+    console.log(filtered)
     return (
         <div className="restaurant-list">
-            {props.data.map(item => (
+            {restaurant.map(item => (
                 <RestaurantCard
                     restaurant_name={item.restaurant_name}
                     restaurant_type={item.restaurant_type}
@@ -16,6 +19,7 @@ const RestaurantList = props => {
                     comment={item.comment}
                 />
             ))}
+            
         </div>
     )
 }

@@ -1,6 +1,4 @@
 import React from "react";
-import ReviewSection from './../reviews/ReviewSection';
-
 import AccountMenu from "./AccountMenu/AccountMenu";
 import RestaurantList from './RestaurantList';
 import NavBar from './NavBar'
@@ -8,10 +6,15 @@ import NavBar from './NavBar'
 const PostPage = props => {
     return (
       <div>
-        <NavBar/>
+        <NavBar searchInputText={props.searchInputText}
+                 searchChange={props.searchChange}
+                 searchSubmit={props.searchSubmit}
+                 />
         {/* <AccountMenu account={props.account} /> */}
         <div>
-          <RestaurantList data={props.data}/>
+          <RestaurantList data={props.data}
+          filtered={props.filtered}
+      />
           {/* <ReviewSection reviewData={props.reviewData}/> */}
         </div>
       </div>

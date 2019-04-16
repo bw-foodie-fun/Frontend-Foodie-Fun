@@ -17,9 +17,31 @@ class App extends Component {
       account: true,
       data: [],
       reviewData: [],
-      inputText: ""
+      inputText: "",
+      searchInputText: [],
+      filtered: [],
     };
   }
+
+  searchSubmit= event => {
+    console.log('hi')
+    event.preventDefault();
+    console.log(this.state.data)
+  const filteredData = this.state.data.filter(post =>
+      post.restaurant_type.includes(this.state.searchInputText))
+  this.setState({
+  filtered: filteredData
+  })
+  console.log(filteredData)
+  }
+  searchChange=(event)=> {
+      this.setState({
+          searchInputText: event.target.value
+      })
+  } 
+
+
+
 
   handleChange = event => {
     this.setState({ inputText: event.target.value });
@@ -88,8 +110,14 @@ class App extends Component {
             <Auth
               {...props}
               data={this.state.data}
+              filtered={this.state.filtered}
               account={this.state.account}
               handleSignIn={this.handleSignIn}
+              loggedIn={this.state.loggedIn}
+              searchSubmit={this.searchSubmit}
+              searchChange={this.searchChange}
+              searchInputText={this.state.searchInputText}
+
             />
           )}
         />
