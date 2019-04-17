@@ -108,10 +108,33 @@ class App extends Component {
         authorization: token
       }
     }
+
+
+    console.log(id, updatedPost)
     
     axios.put(`https://backend-foodie-fun.herokuapp.com/api/meals/${id}`, updatedPost, requestOptions)
       .then(res => {
+        console.log(res)
         this.setState({data: res.data})
+      })
+      .catch(err => {
+        alert(err)
+      })
+  }
+
+  // add post
+
+  addPost = post => {
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    }
+
+    axios.post('https://backend-foodie-fun.herokuapp.com/api/meals', post, requestOptions)
+      .then(res => {
+        console.log(res)
       })
       .catch(err => {
         alert(err)
@@ -169,8 +192,9 @@ class App extends Component {
         <Route
           exact
           path="/newlogin"
-          component={NewLogin}
-          handleSignUp={this.handleSignUp}
+          render={props => (
+            <NewLogin {...props} handleSignUp={this.handleSignUp} />
+          )}
         />
         {/* <Route
           path="/restaurant/:id"

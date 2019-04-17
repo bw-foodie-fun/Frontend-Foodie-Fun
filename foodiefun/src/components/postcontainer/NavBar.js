@@ -36,11 +36,11 @@ const NavBar = props => {
         >
           Add Post
         </Link>
-        <a
+        <button
           onClick={props.handleSignOut}
         >
           Logout
-        </a>
+        </button>
       </form>
     </div>
   );

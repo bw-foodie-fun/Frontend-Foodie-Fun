@@ -8,11 +8,10 @@ class EditPost extends React.Component {
             restaurant_type: '',
             item_name: '',
             item_photo: '',
-            food_rating: '',
-            date_visited: '',
+            food_rating: null,
+            // date_visited: '',
             wait_time: '',
             item_comment: ''
-        
         }
     }
 
@@ -25,7 +24,11 @@ class EditPost extends React.Component {
     updatePost = event => {
         event.preventDefault();
         const id = this.props.match.params.id;
-        this.props.editPost(id, this.state);
+        const meal = {
+            ...this.state,
+            food_rating: parseInt(this.state.food_rating)
+        }
+        this.props.editPost(id, meal);
         // this.setState({
             
         //     //     restaurant: '',
@@ -69,17 +72,17 @@ class EditPost extends React.Component {
                     name="food_rating"
                     onChange={this.handleChange}
                 />
-                Last Visited: <input
+                {/* Last Visited: <input
                     type="text"
                     name="date_visited"
                     onChange={this.handleChange}
-                />
+                /> */}
                 Wait Time: <input
                     type="text"
                     name="wait_time"
                     onChange={this.handleChange}
                 />
-                <button onClick={this.updatePost}>Save</button>
+                <button type="submit" onClick={this.updatePost}>Save</button>
             </form>
         )
     }
