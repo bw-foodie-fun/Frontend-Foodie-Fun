@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
 import PostPage from "./components/postcontainer/PostPage";
-import EditPost from './components/postcontainer/EditPost';
+import EditPost from "./components/postcontainer/EditPost";
 import Login from "./components/login/Login";
 import "./App.css";
 import withAuthenticate from "./components/authenticate/withAuthenticate";
@@ -20,7 +20,13 @@ class App extends Component {
       addData: [],
       inputText: "",
       searchInputText: [],
-      filtered: []
+      filtered: [],
+      restaurantName: "",
+      restaurantType: "",
+      rating: "",
+      date: "",
+      wait: "",
+      comment: ""
     };
   }
 
@@ -42,7 +48,7 @@ class App extends Component {
 
   //add functions wip
   handleChange = event => {
-    this.setState({ inputText: event.target.value });
+    this.setState({[event.target.name]: event.target.value });
   };
 
   handleSubmit = event => {
@@ -51,8 +57,12 @@ class App extends Component {
     const stateCopy = this.state.addData.slice();
     //second create the new review
     const newAdd = {
-      username: "ilovefood",
-      text: this.state.inputText
+      restaurantName: this.state.restaurantName,
+      restaurantType: this.state.restaurantType,
+      rating: this.state.rating,
+      date: this.state.date,
+      wait: this.state.wait,
+      comment: this.state.comment
     };
     stateCopy.push(newAdd);
     //third update the state with setState
@@ -108,40 +118,49 @@ class App extends Component {
   // edit post
 
   editPost = (id, updatedPost) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const requestOptions = {
       headers: {
         authorization: token
       }
-    }
-    
-    axios.put(`https://foodie-fun.herokuapp.com/api/meals/${id}`, updatedPost, requestOptions)
+    };
+
+    axios
+      .put(
+        `https://foodie-fun.herokuapp.com/api/meals/${id}`,
+        updatedPost,
+        requestOptions
+      )
       .then(res => {
-        this.setState({data: res.data})
+        this.setState({ data: res.data });
       })
       .catch(err => {
-        alert(err)
-      })
-  }
+        alert(err);
+      });
+  };
 
   // delete post
 
   deletePost = id => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const requestOptions = {
       headers: {
         authorization: token
       }
-    }
-    
-    axios.delete(`https://foodie-fun.herokuapp.com/api/meals/${id}`, requestOptions)
+    };
+
+    axios
+      .delete(
+        `https://foodie-fun.herokuapp.com/api/meals/${id}`,
+        requestOptions
+      )
       .then(res => {
-        this.setState({data: res.data})
+        this.setState({ data: res.data });
       })
       .catch(err => {
-        alert(err)
-      })
-  }
+        alert(err);
+      });
+  };
 
   render() {
     return (
@@ -170,22 +189,28 @@ class App extends Component {
           component={NewLogin}
           handleSignUp={this.handleSignUp}
         />
-        {/* <Route
-          path="/restaurant/:id"
-          render={props => <RestaurantPage {...props} data={this.state.data} 
-          handleSubmit={this.handleSubmit} handleChange={this.handleChange} 
-          inputText={this.inputText} reviewData={this.state.reviewData}/>}
-        /> */}
-        <Route
-          exact path="/add"
-          component={Add}
-        />
+
+        
         <Route
           path="/edit-post/:id"
+          render={props => <EditPost {...props} editPost={this.editPost} />}
+        />
+        <Route
+          exact
+          path="/add"
           render={props => (
-            <EditPost
+            <Add
               {...props}
-              editPost={this.editPost}
+              handleChange={this.handleChange}
+              inputText={this.state.inputText}
+              addData={this.state.addData}
+              restaurantName={this.state.restaurantName}
+              restaurantType={this.state.restaurantType}
+              rating={this.state.rating}
+              date={this.state.date}
+              wait={this.state.wait}
+              comment={this.state.comment}
+              handleSubmit={this.handleSubmit}
             />
           )}
         />
