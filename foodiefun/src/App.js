@@ -115,7 +115,8 @@ class App extends Component {
         localStorage.setItem("token", res.data.token);
       })
       .catch(err => {
-        alert(err);
+        console.log(err);
+        alert("check da console");
       });
   };
 
@@ -131,7 +132,7 @@ class App extends Component {
 
     axios
       .put(
-        `https://foodie-fun.herokuapp.com/api/meals/${id}`,
+        `https://backend-foodie-fun.herokuapp.com/api/meals/${id}`,
         updatedPost,
         requestOptions
       )
@@ -155,7 +156,7 @@ class App extends Component {
 
     axios
       .delete(
-        `https://foodie-fun.herokuapp.com/api/meals/${id}`,
+        `https://backend-foodie-fun.herokuapp.com/api/meals/${id}`,
         requestOptions
       )
       .then(res => {
@@ -198,8 +199,10 @@ class App extends Component {
         <Route
           exact
           path="/newlogin"
-          component={NewLogin}
-          handleSignUp={this.handleSignUp}
+          render={props => (
+            <NewLogin {...props} handleSignUp={this.handleSignUp} />
+          )}
+          // handleSignUp={this.handleSignUp}
         />
 
         <Route
