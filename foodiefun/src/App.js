@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
 import PostPage from "./components/postcontainer/PostPage";
-import RestaurantPage from "./components/postcontainer/RestaurantPage";
+import EditPost from './components/postcontainer/EditPost';
 import Login from "./components/login/Login";
 import "./App.css";
 import withAuthenticate from "./components/authenticate/withAuthenticate";
@@ -105,6 +105,44 @@ class App extends Component {
       });
   };
 
+  // edit post
+
+  editPost = (id, updatedPost) => {
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    }
+    
+    axios.put(`https://foodie-fun.herokuapp.com/api/meals/${id}`, updatedPost, requestOptions)
+      .then(res => {
+        this.setState({data: res.data})
+      })
+      .catch(err => {
+        alert(err)
+      })
+  }
+
+  // delete post
+
+  deletePost = id => {
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    }
+    
+    axios.delete(`https://foodie-fun.herokuapp.com/api/meals/${id}`, requestOptions)
+      .then(res => {
+        this.setState({data: res.data})
+      })
+      .catch(err => {
+        alert(err)
+      })
+  }
+
   render() {
     return (
       <div>
@@ -122,9 +160,7 @@ class App extends Component {
               searchSubmit={this.searchSubmit}
               searchChange={this.searchChange}
               searchInputText={this.state.searchInputText}
-              handleChange={this.handleChange}
-              inputText={this.inputText}
-              Data={this.state.addData}
+              deletePost={this.deletePost}
             />
           )}
         />
@@ -134,20 +170,25 @@ class App extends Component {
           component={NewLogin}
           handleSignUp={this.handleSignUp}
         />
-        <Route
+        {/* <Route
           path="/restaurant/:id"
+          render={props => <RestaurantPage {...props} data={this.state.data} 
+          handleSubmit={this.handleSubmit} handleChange={this.handleChange} 
+          inputText={this.inputText} reviewData={this.state.reviewData}/>}
+        /> */}
+        <Route
+          exact path="/add"
+          component={Add}
+        />
+        <Route
+          path="/edit-post/:id"
           render={props => (
-            <RestaurantPage
+            <EditPost
               {...props}
-              data={this.state.data}
-              handleSubmit={this.handleSubmit}
-              handleChange={this.handleChange}
-              inputText={this.inputText}
-              Data={this.state.addData}
+              editPost={this.editPost}
             />
           )}
         />
-        <Route exact path="/add" component={Add} />
       </div>
     );
   }
