@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, withRouter } from "react-router-dom";
 import axios from "axios";
 import PostPage from "./components/postcontainer/PostPage";
-import EditPost from './components/postcontainer/EditPost';
+import EditPost from "./components/postcontainer/EditPost";
 import Login from "./components/login/Login";
 import "./App.css";
 import withAuthenticate from "./components/authenticate/withAuthenticate";
@@ -20,7 +20,14 @@ class App extends Component {
       addData: [],
       inputText: "",
       searchInputText: [],
-      filtered: []
+      filtered: [],
+      restaurantName: "",
+      restaurantType: "",
+      rating: "",
+      date: "",
+      wait: "",
+      comment: "",
+      image: ""
     };
   }
 
@@ -42,7 +49,7 @@ class App extends Component {
 
   //add functions wip
   handleChange = event => {
-    this.setState({ inputText: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleSubmit = event => {
@@ -51,8 +58,12 @@ class App extends Component {
     const stateCopy = this.state.addData.slice();
     //second create the new review
     const newAdd = {
-      username: "ilovefood",
-      text: this.state.inputText
+      restaurantName: this.state.restaurantName,
+      restaurantType: this.state.restaurantType,
+      rating: this.state.rating,
+      date: this.state.date,
+      wait: this.state.wait,
+      comment: this.state.comment
     };
     stateCopy.push(newAdd);
     //third update the state with setState
@@ -68,9 +79,10 @@ class App extends Component {
       headers: {
         authorization: token
       }
-    }
-    
-    axios.get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
+    };
+
+    axios
+      .get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
       .then(res => {
         this.setState({ data: res.data });
       })
@@ -80,7 +92,11 @@ class App extends Component {
   }
 
   handleSignIn = credentials => {
-    axios.post('https://backend-foodie-fun.herokuapp.com/api/auth/login', credentials)
+    axios
+      .post(
+        "https://backend-foodie-fun.herokuapp.com/api/auth/login",
+        credentials
+      )
       .then(res => {
         localStorage.setItem("token", res.data.token);
       })
@@ -90,26 +106,29 @@ class App extends Component {
   };
 
   handleSignUp = newCredentials => {
-    axios.post('https://backend-foodie-fun.herokuapp.com/api/auth/register', newCredentials)
+    axios
+      .post(
+        "https://backend-foodie-fun.herokuapp.com/api/auth/register",
+        newCredentials
+      )
       .then(res => {
         localStorage.setItem("token", res.data.token);
       })
       .catch(err => {
-        alert(err);
+        console.log(err);
+        alert("check da console");
       });
   };
 
   // edit post
 
   editPost = (id, updatedPost) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const requestOptions = {
       headers: {
         authorization: token
       }
     }
-
-
     console.log(id, updatedPost)
     
     axios.put(`https://backend-foodie-fun.herokuapp.com/api/meals/${id}`, updatedPost, requestOptions)
@@ -118,9 +137,9 @@ class App extends Component {
         this.setState({data: res.data})
       })
       .catch(err => {
-        alert(err)
-      })
-  }
+        alert(err);
+      });
+  };
 
   // add post
 
@@ -144,28 +163,32 @@ class App extends Component {
   // delete post
 
   deletePost = id => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const requestOptions = {
       headers: {
         authorization: token
       }
-    }
-    
-    axios.delete(`https://backend-foodie-fun.herokuapp.com/api/meals/${id}`, requestOptions)
+    };
+
+    axios
+      .delete(
+        `https://backend-foodie-fun.herokuapp.com/api/meals/${id}`,
+        requestOptions
+      )
       .then(res => {
-        this.setState({data: res.data})
+        this.setState({ data: res.data });
       })
       .catch(err => {
-        alert(err)
-      })
-  }
+        alert(err);
+      });
+  };
 
   // logout
 
   handleSignOut = () => {
-    localStorage.removeItem("token")
-    this.props.history.push("/")
-  }
+    localStorage.removeItem("token");
+    this.props.history.push("/");
+  };
 
   render() {
     return (
@@ -195,23 +218,29 @@ class App extends Component {
           render={props => (
             <NewLogin {...props} handleSignUp={this.handleSignUp} />
           )}
+//handleSignUp={this.handleSignUp}
         />
-        {/* <Route
-          path="/restaurant/:id"
-          render={props => <RestaurantPage {...props} data={this.state.data} 
-          handleSubmit={this.handleSubmit} handleChange={this.handleChange} 
-          inputText={this.inputText} reviewData={this.state.reviewData}/>}
-        /> */}
-        <Route
-          exact path="/add"
-          component={Add}
-        />
+
         <Route
           path="/edit-post/:id"
+          render={props => <EditPost {...props} editPost={this.editPost} />}
+        />
+        <Route
+          exact
+          path="/add"
           render={props => (
-            <EditPost
+            <Add
               {...props}
-              editPost={this.editPost}
+              handleChange={this.handleChange}
+              inputText={this.state.inputText}
+              addData={this.state.addData}
+              restaurantName={this.state.restaurantName}
+              restaurantType={this.state.restaurantType}
+              rating={this.state.rating}
+              date={this.state.date}
+              wait={this.state.wait}
+              comment={this.state.comment}
+              handleSubmit={this.handleSubmit}
             />
           )}
         />
