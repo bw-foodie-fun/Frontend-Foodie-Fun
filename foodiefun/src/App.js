@@ -24,6 +24,7 @@ class App extends Component {
     };
   }
 
+  //search functions
   searchSubmit= event => {
     event.preventDefault();
   const filteredData = this.state.data.filter(post =>
@@ -38,9 +39,7 @@ class App extends Component {
       })
   } 
 
-
-
-
+  //add functions wip
   handleChange = event => {
     this.setState({ inputText: event.target.value });
   };
@@ -61,6 +60,8 @@ class App extends Component {
     });
   }; 
 
+
+  //connecting to backend
   componentDidMount() {
     const token = localStorage.getItem('token');
     const requestOptions = {
