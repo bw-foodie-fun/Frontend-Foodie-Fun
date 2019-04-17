@@ -8,9 +8,7 @@ const PostPage = props => {
         <NavBar searchInputText={props.searchInputText}
                  searchChange={props.searchChange}
                  searchSubmit={props.searchSubmit}
-                 handleChange ={this.props.handleChange}
-                 handleSubmit={this.props.handleSubmit}
-                 addData = {this.props.addData}
+              
                  />
         
         <div>

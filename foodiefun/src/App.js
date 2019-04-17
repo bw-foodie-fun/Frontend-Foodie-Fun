@@ -122,6 +122,9 @@ class App extends Component {
               searchSubmit={this.searchSubmit}
               searchChange={this.searchChange}
               searchInputText={this.state.searchInputText}
+              handleChange={this.handleChange}
+              inputText={this.inputText}
+              Data={this.state.addData}
             />
           )}
         />
