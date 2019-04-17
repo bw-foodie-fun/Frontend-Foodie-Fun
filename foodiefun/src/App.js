@@ -17,27 +17,28 @@ class App extends Component {
     this.state = {
       account: true,
       data: [],
-      reviewData: [],
+      addData: [],
       inputText: "",
       searchInputText: [],
-      filtered: [],
+      filtered: []
     };
   }
 
   //search functions
-  searchSubmit= event => {
+  searchSubmit = event => {
     event.preventDefault();
-  const filteredData = this.state.data.filter(post =>
-     post.restaurant_type.includes(this.state.searchInputText))
-  this.setState({
-  filtered: filteredData
-  })
-  }
-  searchChange=(event)=> {
-      this.setState({
-          searchInputText: event.target.value
-      })
-  } 
+    const filteredData = this.state.data.filter(post =>
+      post.restaurant_type.includes(this.state.searchInputText)
+    );
+    this.setState({
+      filtered: filteredData
+    });
+  };
+  searchChange = event => {
+    this.setState({
+      searchInputText: event.target.value
+    });
+  };
 
   //add functions wip
   handleChange = event => {
@@ -47,30 +48,30 @@ class App extends Component {
   handleSubmit = event => {
     event.preventDefault();
     //first make a copy of the state
-    const stateCopy = this.state.reviewData.slice();
+    const stateCopy = this.state.addData.slice();
     //second create the new review
-    const newReview = {
+    const newAdd = {
       username: "ilovefood",
       text: this.state.inputText
     };
-    stateCopy.push(newReview);
+    stateCopy.push(newAdd);
     //third update the state with setState
     this.setState({
-      reviewData: stateCopy
+      addData: stateCopy
     });
-  }; 
-
+  };
 
   //connecting to backend
   componentDidMount() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const requestOptions = {
       headers: {
         authorization: token
       }
-    }
-    
-    axios.get("https://foodie-fun.herokuapp.com/api/meals", requestOptions)
+    };
+
+    axios
+      .get("https://foodie-fun.herokuapp.com/api/meals", requestOptions)
       .then(res => {
         this.setState({ data: res.data });
       })
@@ -80,24 +81,29 @@ class App extends Component {
   }
 
   handleSignIn = credentials => {
-    axios.post('https://foodie-fun.herokuapp.com/api/auth/login', credentials)
+    axios
+      .post("https://foodie-fun.herokuapp.com/api/auth/login", credentials)
       .then(res => {
-        localStorage.setItem('token', res.data.token)
+        localStorage.setItem("token", res.data.token);
       })
       .catch(err => {
-        alert(err)
-      })
-  }
+        alert(err);
+      });
+  };
 
   handleSignUp = newCredentials => {
-    axios.post('https://foodie-fun.herokuapp.com/api/auth/register', newCredentials)
+    axios
+      .post(
+        "https://foodie-fun.herokuapp.com/api/auth/register",
+        newCredentials
+      )
       .then(res => {
-        localStorage.setItem('token', res.data.token)
+        localStorage.setItem("token", res.data.token);
       })
       .catch(err => {
-        alert(err)
-      })
-  }
+        alert(err);
+      });
+  };
 
   // edit post
 
@@ -159,7 +165,8 @@ class App extends Component {
           )}
         />
         <Route
-          exact path="/newlogin"
+          exact
+          path="/newlogin"
           component={NewLogin}
           handleSignUp={this.handleSignUp}
         />
