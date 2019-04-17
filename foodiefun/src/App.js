@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, withRouter } from "react-router-dom";
 import axios from "axios";
 import PostPage from "./components/postcontainer/PostPage";
-import EditPost from './components/postcontainer/EditPost';
+import EditPost from "./components/postcontainer/EditPost";
 import Login from "./components/login/Login";
 import "./App.css";
 import withAuthenticate from "./components/authenticate/withAuthenticate";
@@ -68,9 +68,10 @@ class App extends Component {
       headers: {
         authorization: token
       }
-    }
-    
-    axios.get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
+    };
+
+    axios
+      .get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
       .then(res => {
         this.setState({ data: res.data });
       })
@@ -80,7 +81,11 @@ class App extends Component {
   }
 
   handleSignIn = credentials => {
-    axios.post('https://backend-foodie-fun.herokuapp.com/api/auth/login', credentials)
+    axios
+      .post(
+        "https://backend-foodie-fun.herokuapp.com/api/auth/login",
+        credentials
+      )
       .then(res => {
         localStorage.setItem("token", res.data.token);
       })
@@ -90,59 +95,73 @@ class App extends Component {
   };
 
   handleSignUp = newCredentials => {
-    axios.post('https://backend-foodie-fun.herokuapp.com/api/auth/register', newCredentials)
+    axios
+      .post(
+        "https://backend-foodie-fun.herokuapp.com/api/auth/register",
+        newCredentials
+      )
       .then(res => {
         localStorage.setItem("token", res.data.token);
       })
       .catch(err => {
-        alert(err);
+        console.log(err);
+        alert("check da console");
       });
   };
 
   // edit post
 
   editPost = (id, updatedPost) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const requestOptions = {
       headers: {
         authorization: token
       }
-    }
-    
-    axios.put(`https://backend-foodie-fun.herokuapp.com/api/meals/${id}`, updatedPost, requestOptions)
+    };
+
+    axios
+      .put(
+        `https://backend-foodie-fun.herokuapp.com/api/meals/${id}`,
+        updatedPost,
+        requestOptions
+      )
       .then(res => {
-        this.setState({data: res.data})
+        this.setState({ data: res.data });
       })
       .catch(err => {
-        alert(err)
-      })
-  }
+        alert(err);
+      });
+  };
 
   // delete post
 
   deletePost = id => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const requestOptions = {
       headers: {
         authorization: token
       }
-    }
-    
-    axios.delete(`https://backend-foodie-fun.herokuapp.com/api/meals/${id}`, requestOptions)
+    };
+
+    axios
+      .delete(
+        `https://backend-foodie-fun.herokuapp.com/api/meals/${id}`,
+        requestOptions
+      )
       .then(res => {
-        this.setState({data: res.data})
+        this.setState({ data: res.data });
       })
       .catch(err => {
-        alert(err)
-      })
-  }
+        alert(err);
+      });
+  };
 
   // logout
 
   handleSignOut = () => {
-    localStorage.removeItem("token")
-    this.props.history.push("/")
-  }
+    localStorage.removeItem("token");
+    this.props.history.push("/");
+  };
 
   render() {
     return (
@@ -169,27 +188,21 @@ class App extends Component {
         <Route
           exact
           path="/newlogin"
-          component={NewLogin}
-          handleSignUp={this.handleSignUp}
+          render={props => (
+            <NewLogin {...props} handleSignUp={this.handleSignUp} />
+          )}
+          // handleSignUp={this.handleSignUp}
         />
         {/* <Route
           path="/restaurant/:id"
-          render={props => <RestaurantPage {...props} data={this.state.data} 
-          handleSubmit={this.handleSubmit} handleChange={this.handleChange} 
+          render={props => <RestaurantPage {...props} data={this.state.data}
+          handleSubmit={this.handleSubmit} handleChange={this.handleChange}
           inputText={this.inputText} reviewData={this.state.reviewData}/>}
         /> */}
-        <Route
-          exact path="/add"
-          component={Add}
-        />
+        <Route exact path="/add" component={Add} />
         <Route
           path="/edit-post/:id"
-          render={props => (
-            <EditPost
-              {...props}
-              editPost={this.editPost}
-            />
-          )}
+          render={props => <EditPost {...props} editPost={this.editPost} />}
         />
       </div>
     );
