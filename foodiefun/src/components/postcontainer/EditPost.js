@@ -24,7 +24,7 @@ class EditPost extends React.Component {
 
     updatePost = event => {
         event.preventDefault();
-        const id = this.props.match.params.id; //HERE
+        const id = this.props.match.params.id;
         this.props.editPost(id, this.state);
         // this.setState({
             
