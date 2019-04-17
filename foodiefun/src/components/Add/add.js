@@ -42,7 +42,11 @@ const Add = props => {
           placeholder="Restaurant Type"
         />
 
-        <input type="file" onChange={file => submitPicture(file)} />
+        <input
+          type="file"
+          onChange={file => submitPicture(file)}
+          name="image"
+        />
 
         <input
           className="addPost"

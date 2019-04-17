@@ -26,7 +26,8 @@ class App extends Component {
       rating: "",
       date: "",
       wait: "",
-      comment: ""
+      comment: "",
+      image: ""
     };
   }
 
@@ -48,7 +49,7 @@ class App extends Component {
 
   //add functions wip
   handleChange = event => {
-    this.setState({[event.target.name]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleSubmit = event => {
@@ -203,7 +204,7 @@ class App extends Component {
           )}
           // handleSignUp={this.handleSignUp}
         />
-        
+
         <Route
           path="/edit-post/:id"
           render={props => <EditPost {...props} editPost={this.editPost} />}
