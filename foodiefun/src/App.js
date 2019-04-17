@@ -20,7 +20,13 @@ class App extends Component {
       addData: [],
       inputText: "",
       searchInputText: [],
-      filtered: []
+      filtered: [],
+      restaurantName: "",
+      restaurantType: "",
+      rating: "",
+      date: "",
+      wait: "",
+      comment: ""
     };
   }
 
@@ -42,7 +48,7 @@ class App extends Component {
 
   //add functions wip
   handleChange = event => {
-    this.setState({ inputText: event.target.value });
+    this.setState({[event.target.name]: event.target.value });
   };
 
   handleSubmit = event => {
@@ -51,8 +57,12 @@ class App extends Component {
     const stateCopy = this.state.addData.slice();
     //second create the new review
     const newAdd = {
-      username: "ilovefood",
-      text: this.state.inputText
+      restaurantName: this.state.restaurantName,
+      restaurantType: this.state.restaurantType,
+      rating: this.state.rating,
+      date: this.state.date,
+      wait: this.state.wait,
+      comment: this.state.comment
     };
     stateCopy.push(newAdd);
     //third update the state with setState
@@ -193,16 +203,29 @@ class App extends Component {
           )}
           // handleSignUp={this.handleSignUp}
         />
-        {/* <Route
-          path="/restaurant/:id"
-          render={props => <RestaurantPage {...props} data={this.state.data}
-          handleSubmit={this.handleSubmit} handleChange={this.handleChange}
-          inputText={this.inputText} reviewData={this.state.reviewData}/>}
-        /> */}
-        <Route exact path="/add" component={Add} />
+        
         <Route
           path="/edit-post/:id"
           render={props => <EditPost {...props} editPost={this.editPost} />}
+        />
+        <Route
+          exact
+          path="/add"
+          render={props => (
+            <Add
+              {...props}
+              handleChange={this.handleChange}
+              inputText={this.state.inputText}
+              addData={this.state.addData}
+              restaurantName={this.state.restaurantName}
+              restaurantType={this.state.restaurantType}
+              rating={this.state.rating}
+              date={this.state.date}
+              wait={this.state.wait}
+              comment={this.state.comment}
+              handleSubmit={this.handleSubmit}
+            />
+          )}
         />
       </div>
     );

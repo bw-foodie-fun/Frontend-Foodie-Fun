@@ -4,12 +4,12 @@ class AddPost extends React.Component {
   render() {
     return (
       <div>
-        {this.props.reviewData.restaurant_name}
-        {this.props.reviewData.restaurant_type}
-        {this.props.reviewData.item_photo}
-        {this.props.reviewData.food_rating}
-        {this.props.reviewData.date_visited}
-        {this.props.reviewData.wait_time}
+        <h2> {this.props.addData.restaurantName} </h2>
+        <h3> {this.props.addData.restaurantType} </h3>
+        <h4> {this.props.addData.rating} </h4>
+        <h4> {this.props.addData.date} </h4>
+        <h4> {this.props.addData.wait}</h4>
+        <h4> {this.props.addData.comment}</h4>
       </div>
     );
   }
