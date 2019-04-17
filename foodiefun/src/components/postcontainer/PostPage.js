@@ -15,7 +15,6 @@ const PostPage = props => {
           <RestaurantList data={props.data}
           filtered={props.filtered}
       />
-          {/* <ReviewSection reviewData={props.reviewData}/> */}
         </div>
       </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReviewSection from '../reviews/ReviewSection';
+
 
 const RestaurantCard = props => {
     return (
@@ -11,7 +11,6 @@ const RestaurantCard = props => {
             <p>Date Visited: {props.date_visited}</p>
             <p>Wait Time: {props.wait_time}</p>
             <p>Comment: {props.comment}</p>
-            
         </div>
     )
 }
