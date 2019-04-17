@@ -1,80 +1,72 @@
 import React from "react";
-import Review from "./addPost";
-
+import AddPost from "./addPost";
 
 const Add = props => {
-    return (
-      <div className="reviews">
-        {props.reviewData && props.reviewData.map((review, index) => (
-          <Review key={index} reviewData={review} />
+  console.log(props);
+  return (
+    <div className="post">
+      {props.addData &&
+        props.addData.map((add, index) => (
+          <AddPost key={index} addData={add} />
         ))}
-<form action="" onSubmit={props.handleSubmit}>
-          <input
-            className="reviewForm"
-            type="text"
-            onChange={props.handleChange}
-            value={props.inputText}
-            placeholder="Restaurant Name"
-          />
-        </form> <form action="" onSubmit={props.handleSubmit}>
-          <input
-            className="reviewForm"
-            type="text"
-            onChange={props.handleChange}
-            value={props.inputText}
-            placeholder="Restaurant Type"
-          />
-          </form>
-        <h1>Image Goes Here</h1>
-        <form action="" onSubmit={props.handleSubmit}>
-          <input
-            className="reviewForm"
-            type="text"
-            onChange={props.handleChange}
-            value={props.inputText}
-            placeholder="Rating:"
-          />
-        </form>
-        <form action="" onSubmit={props.handleSubmit}>
-          <input
-            className="reviewForm"
-            type="text"
-            onChange={props.handleChange}
-            value={props.inputText}
-            placeholder="Add a Review:"
-          />
-        </form>
-        <form action="" onSubmit={props.handleSubmit}>
-          <input
-            className="reviewForm"
-            type="text"
-            onChange={props.handleChange}
-            value={props.inputText}
-            placeholder="Date Visited:"
-          />
-        </form>
-        <form action="" onSubmit={props.handleSubmit}>
-          <input
-            className="reviewForm"
-            type="text"
-            onChange={props.handleChange}
-            value={props.inputText}
-            placeholder="Wait Time:"
-          />
-        </form>
-        <form action="" onSubmit={props.handleSubmit}>
-          <input
-            className="reviewForm"
-            type="text"
-            onChange={props.handleChange}
-            value={props.inputText}
-            placeholder="Comment:"
-          />
-        </form>
-        <button>Submit</button>
-      </div>
-    );
-  }
-
+      <form action="" onSubmit={props.handleSubmit}>
+        <input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.inputText}
+          placeholder="Restaurant Name"
+        />
+      </form>{" "}
+      <form action="" onSubmit={props.handleSubmit}>
+        <input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.inputText}
+          placeholder="Restaurant Type"
+        />
+      </form>
+      <h1>Image Goes Here</h1>
+      <form action="" onSubmit={props.handleSubmit}>
+        <input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.inputText}
+          placeholder="Rating:"
+        />
+      </form>
+      <form action="" onSubmit={props.handleSubmit}>
+        <input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.inputText}
+          placeholder="Date Visited:"
+        />
+      </form>
+      <form action="" onSubmit={props.handleSubmit}>
+        <input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.inputText}
+          placeholder="Wait Time:"
+        />
+      </form>
+      <form action="" onSubmit={props.handleSubmit}>
+        <input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.inputText}
+          placeholder="Comment:"
+        />
+      </form>
+      <button>Submit</button>
+    </div>
+  );
+};
 
 export default Add;
