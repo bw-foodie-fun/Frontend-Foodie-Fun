@@ -1,6 +1,7 @@
 import React from "react";
 import AddPost from "./addPost";
 import axios from "axios";
+import NavBar from "../postcontainer/NavBar";
 
 async function submitPicture(e) {
   const file = e.target.files[0];
@@ -19,6 +20,7 @@ const Add = props => {
   console.log(props);
   return (
     <div className="post">
+    <NavBar/>
       {props.addData &&
         props.addData.map((add, index) => (
           <AddPost key={index} addData={add} />
