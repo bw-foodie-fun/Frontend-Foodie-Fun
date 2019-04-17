@@ -12,9 +12,11 @@ const PostPage = props => {
                  />
         
         <div>
-          <RestaurantList data={props.data}
-          filtered={props.filtered}
-      />
+          <RestaurantList
+            data={props.data}
+            filtered={props.filtered}
+            deletePost={props.deletePost}
+          />
         </div>
       </div>
     );

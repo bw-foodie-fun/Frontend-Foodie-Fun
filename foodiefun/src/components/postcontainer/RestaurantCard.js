@@ -1,18 +1,29 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
+class RestaurantCard extends React.Component {
 
-const RestaurantCard = props => {
-    return (
-        <div className="restaurant-card">
-            <h3>{props.restaurant_name}</h3>
-            <p>{props.restaurant_type}</p>
-            <img src={props.item_photo} alt="Restaurant"/>
-            <p>Rating: {props.food_rating}</p>
-            <p>Date Visited: {props.date_visited}</p>
-            <p>Wait Time: {props.wait_time}</p>
-            <p>Comment: {props.comment}</p>
-        </div>
-    )
+    deletePost = event => {
+        event.preventDefault();
+        this.props.deletePost(this.props.id)
+    }
+
+    render() {
+        return (
+            <div className="restaurant-card">
+                <h3>{this.props.restaurant_name}</h3>
+                <p>{this.props.restaurant_type}</p>
+                <p>{this.props.item_name}</p>
+                <img src={this.props.item_photo} alt="Restaurant"/>
+                <p>Rating: {this.props.food_rating}</p>
+                <p>Date Visited: {this.props.date_visited}</p>
+                <p>Wait Time: {this.props.wait_time}</p>
+                <p>Comment: {this.props.comment}</p>
+                <Link to={`/edit-post/${this.props.id}`}><button>Edit</button></Link>
+                <button onClick={this.deletePost}>Delete Post</button>
+            </div>
+        )
+    }
 }
 
 export default RestaurantCard;
