@@ -78,9 +78,10 @@ class App extends Component {
       headers: {
         authorization: token
       }
-    }
-    
-    axios.get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
+    };
+
+    axios
+      .get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
       .then(res => {
         this.setState({ data: res.data });
       })
@@ -90,7 +91,11 @@ class App extends Component {
   }
 
   handleSignIn = credentials => {
-    axios.post('https://backend-foodie-fun.herokuapp.com/api/auth/login', credentials)
+    axios
+      .post(
+        "https://backend-foodie-fun.herokuapp.com/api/auth/login",
+        credentials
+      )
       .then(res => {
         localStorage.setItem("token", res.data.token);
       })
@@ -100,12 +105,17 @@ class App extends Component {
   };
 
   handleSignUp = newCredentials => {
-    axios.post('https://backend-foodie-fun.herokuapp.com/api/auth/register', newCredentials)
+    axios
+      .post(
+        "https://backend-foodie-fun.herokuapp.com/api/auth/register",
+        newCredentials
+      )
       .then(res => {
         localStorage.setItem("token", res.data.token);
       })
       .catch(err => {
-        alert(err);
+        console.log(err);
+        alert("check da console");
       });
   };
 
@@ -121,7 +131,7 @@ class App extends Component {
 
     axios
       .put(
-        `https://foodie-fun.herokuapp.com/api/meals/${id}`,
+        `https://backend-foodie-fun.herokuapp.com/api/meals/${id}`,
         updatedPost,
         requestOptions
       )
@@ -145,7 +155,7 @@ class App extends Component {
 
     axios
       .delete(
-        `https://foodie-fun.herokuapp.com/api/meals/${id}`,
+        `https://backend-foodie-fun.herokuapp.com/api/meals/${id}`,
         requestOptions
       )
       .then(res => {
@@ -159,9 +169,9 @@ class App extends Component {
   // logout
 
   handleSignOut = () => {
-    localStorage.removeItem("token")
-    this.props.history.push("/")
-  }
+    localStorage.removeItem("token");
+    this.props.history.push("/");
+  };
 
   render() {
     return (
@@ -188,10 +198,11 @@ class App extends Component {
         <Route
           exact
           path="/newlogin"
-          component={NewLogin}
-          handleSignUp={this.handleSignUp}
+          render={props => (
+            <NewLogin {...props} handleSignUp={this.handleSignUp} />
+          )}
+          // handleSignUp={this.handleSignUp}
         />
-
         
         <Route
           path="/edit-post/:id"
