@@ -53,6 +53,7 @@ const withAuthenticate = Login => PostPage =>
           handleChange ={this.props.handleChange}
           handleSubmit={this.props.handleSubmit}
           addData = {this.props.addData}
+          deletePost={this.props.deletePost}
         />
       );
     }
