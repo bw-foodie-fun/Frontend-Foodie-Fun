@@ -1,5 +1,19 @@
 import React from "react";
 import AddPost from "./addPost";
+import axios from "axios";
+
+async function submitPicture(e) {
+  const file = e.target.files[0];
+  const data = new FormData();
+  data.append("file", file);
+  data.append("upload_preset", "foodie-fun");
+  let {
+    data: { url, secure_url }
+  } = await axios.post(
+    "https://api.cloudinary.com/v1_1/foodie-fun/image/upload",
+    data
+  );
+}
 
 const Add = props => {
   console.log(props);
@@ -14,57 +28,59 @@ const Add = props => {
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.inputText}
+          value={props.restaurantName}
+          name="restaurantName"
           placeholder="Restaurant Name"
         />
-      </form>{" "}
-      <form action="" onSubmit={props.handleSubmit}>
+
         <input
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.inputText}
+          value={props.restaurantType}
+          name="restaurantType"
           placeholder="Restaurant Type"
         />
-      </form>
-      <h1>Image Goes Here</h1>
-      <form action="" onSubmit={props.handleSubmit}>
+
+        <input type="file" onChange={file => submitPicture(file)} />
+
         <input
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.inputText}
+          value={props.rating}
           placeholder="Rating:"
+          name="rating"
         />
-      </form>
-      <form action="" onSubmit={props.handleSubmit}>
+
         <input
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.inputText}
+          value={props.date}
           placeholder="Date Visited:"
+          name="date"
         />
-      </form>
-      <form action="" onSubmit={props.handleSubmit}>
+
         <input
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.inputText}
+          value={props.wait}
           placeholder="Wait Time:"
+          name="wait"
         />
-      </form>
-      <form action="" onSubmit={props.handleSubmit}>
+
         <input
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.inputText}
+          value={props.comment}
           placeholder="Comment:"
+          name="comment"
         />
+        <button>Submit</button>
       </form>
-      <button>Submit</button>
     </div>
   );
 };
