@@ -36,13 +36,11 @@ const NavBar = props => {
         >
           Add Post
         </Link>
-        <Link
-          to={{
-            pathname: "/logout"
-          }}
+        <a
+          onClick={props.handleSignOut}
         >
           Logout
-        </Link>
+        </a>
       </form>
     </div>
   );

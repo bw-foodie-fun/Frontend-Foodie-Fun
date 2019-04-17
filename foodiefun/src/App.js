@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import axios from "axios";
 import PostPage from "./components/postcontainer/PostPage";
 import EditPost from './components/postcontainer/EditPost';
@@ -70,7 +70,7 @@ class App extends Component {
       }
     }
     
-    axios.get("https://foodie-fun.herokuapp.com/api/meals", requestOptions)
+    axios.get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
       .then(res => {
         this.setState({ data: res.data });
       })
@@ -80,7 +80,7 @@ class App extends Component {
   }
 
   handleSignIn = credentials => {
-    axios.post('https://foodie-fun.herokuapp.com/api/auth/login', credentials)
+    axios.post('https://backend-foodie-fun.herokuapp.com/api/auth/login', credentials)
       .then(res => {
         localStorage.setItem('token', res.data.token)
       })
@@ -90,7 +90,7 @@ class App extends Component {
   }
 
   handleSignUp = newCredentials => {
-    axios.post('https://foodie-fun.herokuapp.com/api/auth/register', newCredentials)
+    axios.post('https://backend-foodie-fun.herokuapp.com/api/auth/register', newCredentials)
       .then(res => {
         localStorage.setItem('token', res.data.token)
       })
@@ -109,7 +109,7 @@ class App extends Component {
       }
     }
     
-    axios.put(`https://foodie-fun.herokuapp.com/api/meals/${id}`, updatedPost, requestOptions)
+    axios.put(`https://backend-foodie-fun.herokuapp.com/api/meals/${id}`, updatedPost, requestOptions)
       .then(res => {
         this.setState({data: res.data})
       })
@@ -128,13 +128,20 @@ class App extends Component {
       }
     }
     
-    axios.delete(`https://foodie-fun.herokuapp.com/api/meals/${id}`, requestOptions)
+    axios.delete(`https://backend-foodie-fun.herokuapp.com/api/meals/${id}`, requestOptions)
       .then(res => {
         this.setState({data: res.data})
       })
       .catch(err => {
         alert(err)
       })
+  }
+
+  // logout
+
+  handleSignOut = () => {
+    localStorage.removeItem("token")
+    this.props.history.push("/")
   }
 
   render() {
@@ -155,6 +162,7 @@ class App extends Component {
               searchChange={this.searchChange}
               searchInputText={this.state.searchInputText}
               deletePost={this.deletePost}
+              handleSignOut={this.handleSignOut}
             />
           )}
         />
