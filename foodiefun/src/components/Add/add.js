@@ -1,20 +1,5 @@
 import React from "react";
 import AddPost from "./addPost";
-import axios from "axios";
-
-async function submitPicture(e) {
-  const file = e.target.files[0];
-  const data = new FormData();
-  data.append("file", file);
-  data.append("upload_preset", "foodie-fun");
-  let {
-    data: { url, secure_url }
-  } = await axios.post(
-    "https://api.cloudinary.com/v1_1/foodie-fun/image/upload",
-    data
-  );
-
-}
 
 const Add = props => {
   console.log(props);
@@ -29,64 +14,57 @@ const Add = props => {
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.restaurantName}
-          name="restaurantName"
+          value={props.inputText}
           placeholder="Restaurant Name"
         />
-      
-    
+      </form>{" "}
+      <form action="" onSubmit={props.handleSubmit}>
         <input
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.restaurantType}
-          name = "restaurantType"
+          value={props.inputText}
           placeholder="Restaurant Type"
         />
-      
-      <input type="file" onChange={file => submitPicture(file)} />
-     
-        <input
-          className="addPost"
-          type="text"
-          onChange={props.handleChange}
-          value={props.rating}
-          placeholder="Rating:"
-          name="rating"
-        />
-      
-     
-        <input
-          className="addPost"
-          type="text"
-          onChange={props.handleChange}
-          value={props.date}
-          placeholder="Date Visited:"
-          name="date"
-        />
-      
-      
-        <input
-          className="addPost"
-          type="text"
-          onChange={props.handleChange}
-          value={props.wait}
-          placeholder="Wait Time:"
-          name="wait"
-        />
-      
-      
-        <input
-          className="addPost"
-          type="text"
-          onChange={props.handleChange}
-          value={props.comment}
-          placeholder="Comment:"
-          name="comment"
-        />
-        <button>Submit</button>
       </form>
-      
+      <h1>Image Goes Here</h1>
+      <form action="" onSubmit={props.handleSubmit}>
+        <input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.inputText}
+          placeholder="Rating:"
+        />
+      </form>
+      <form action="" onSubmit={props.handleSubmit}>
+        <input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.inputText}
+          placeholder="Date Visited:"
+        />
+      </form>
+      <form action="" onSubmit={props.handleSubmit}>
+        <input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.inputText}
+          placeholder="Wait Time:"
+        />
+      </form>
+      <form action="" onSubmit={props.handleSubmit}>
+        <input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.inputText}
+          placeholder="Comment:"
+        />
+      </form>
+      <button>Submit</button>
     </div>
   );
 };

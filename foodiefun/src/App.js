@@ -20,14 +20,7 @@ class App extends Component {
       addData: [],
       inputText: "",
       searchInputText: [],
-      filtered: [],
-      restaurantName: '',
-      restaurantType: '',
-      rating: '',
-      date: '',
-      wait: '',
-      comment: '',
-
+      filtered: []
     };
   }
 
@@ -49,22 +42,17 @@ class App extends Component {
 
   //add functions wip
   handleChange = event => {
-    this.setState({[event.target.name]: event.target.value });
+    this.setState({ inputText: event.target.value });
   };
 
   handleSubmit = event => {
-    console.log('hi')
     event.preventDefault();
     //first make a copy of the state
     const stateCopy = this.state.addData.slice();
     //second create the new review
     const newAdd = {
-      restaurantName: this.state.restaurantName,
-      restaurantType: this.state.restaurantType,
-      rating: this.state.rating,
-      date: this.state.date,
-      wait: this.state.wait,
-      comment: this.state.comment
+      username: "ilovefood",
+      text: this.state.inputText
     };
     stateCopy.push(newAdd);
     //third update the state with setState
@@ -172,7 +160,7 @@ class App extends Component {
               searchSubmit={this.searchSubmit}
               searchChange={this.searchChange}
               searchInputText={this.state.searchInputText}
- deletePost={this.deletePost}
+              deletePost={this.deletePost}
             />
           )}
         />
@@ -197,25 +185,6 @@ class App extends Component {
           render={props => (
             <EditPost
               {...props}
-   data={this.state.data}
-              
-            />
-          )}
-        />
-        <Route exact path="/add" render={props => (
-          <Add {...props} handleChange={this.handleChange}
-          inputText={this.state.inputText}
-          addData={this.state.addData} 
-          restaurantName={this.state.restaurantName}
-          restaurantType= {this.state.restaurantType}
-          rating={this.state.rating}
-          date = {this.state.date}
-          wait={this.state.wait}
-          comment={this.state.comment}
-          handleSubmit={this.handleSubmit}
-          />
-        )}  />
-        
               editPost={this.editPost}
             />
           )}
