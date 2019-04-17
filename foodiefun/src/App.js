@@ -208,7 +208,6 @@ class App extends Component {
               searchChange={this.searchChange}
               searchInputText={this.state.searchInputText}
               deletePost={this.deletePost}
-              handleSignOut={this.handleSignOut}
             />
           )}
         />
@@ -249,4 +248,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

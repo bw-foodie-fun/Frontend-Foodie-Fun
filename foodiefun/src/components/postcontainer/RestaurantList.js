@@ -4,11 +4,11 @@ import RestaurantCard from './RestaurantCard';
 const RestaurantList = props => {
     const {filtered,data} = props
     const restaurant = filtered.length === 0 ? data : filtered
-    console.log(filtered)
     return (
         <div className="restaurant-list">
             {restaurant.map(item => (
                 <RestaurantCard
+                    {...props}
                     key={item.id}
                     id={item.id}
                     restaurant_name={item.restaurant_name}
