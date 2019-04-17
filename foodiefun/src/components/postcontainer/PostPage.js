@@ -5,14 +5,16 @@ import NavBar from './NavBar'
 const PostPage = props => {
     return (
       <div>
-        <NavBar searchInputText={props.searchInputText}
-                 searchChange={props.searchChange}
-                 searchSubmit={props.searchSubmit}
-                 handleSignOut={props.handleSignOut}
-                 />
+        <NavBar
+          {...props}
+          searchInputText={props.searchInputText}
+          searchChange={props.searchChange}
+          searchSubmit={props.searchSubmit}
+        />
         
         <div>
           <RestaurantList
+            {...props}
             data={props.data}
             filtered={props.filtered}
             deletePost={props.deletePost}

@@ -160,13 +160,6 @@ class App extends Component {
       })
   }
 
-  // logout
-
-  handleSignOut = () => {
-    localStorage.removeItem("token")
-    this.props.history.push("/")
-  }
-
   render() {
     return (
       <div>
@@ -185,7 +178,6 @@ class App extends Component {
               searchChange={this.searchChange}
               searchInputText={this.state.searchInputText}
               deletePost={this.deletePost}
-              handleSignOut={this.handleSignOut}
             />
           )}
         />
@@ -220,4 +212,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
