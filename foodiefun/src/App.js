@@ -28,11 +28,10 @@ class App extends Component {
     event.preventDefault();
     console.log(this.state.data)
   const filteredData = this.state.data.filter(post =>
-      post.restaurant_type.includes(this.state.searchInputText))
+     post.restaurant_type.includes(this.state.searchInputText))
   this.setState({
   filtered: filteredData
   })
-  console.log(filteredData)
   }
   searchChange=(event)=> {
       this.setState({

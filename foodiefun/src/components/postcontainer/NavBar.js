@@ -5,13 +5,13 @@ const NavBar = props =>  {
       <div>
         <h3>FoodieFun</h3>
         <form onSubmit={props.searchSubmit}>
-        <button>Submit</button>
           <input
             type="text"
             placeholder="Search.."
             onChange={props.searchChange}
             value={props.searchInputText}
           />
+          <button>Submit</button>
         </form>
       </div>
     );
