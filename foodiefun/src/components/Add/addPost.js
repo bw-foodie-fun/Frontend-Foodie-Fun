@@ -9,6 +9,7 @@ class AddPost extends React.Component {
         <h4> {this.props.addData.rating} </h4>
         <h4> {this.props.addData.date} </h4>
         <h4> {this.props.addData.wait}</h4>
+        <h4> {this.props.addData.comment}</h4>
       </div>
     );
   }

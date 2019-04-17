@@ -29,6 +29,7 @@ const withAuthenticate = Login => PostPage =>
                         filtered={this.props.filtered}
                         searchInputText={this.props.searchInputText}
                         deletePost={this.props.deletePost}
+                        handleSignOut={this.props.handleSignOut}
                     />
             );
         }

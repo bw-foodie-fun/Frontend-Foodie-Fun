@@ -8,7 +8,7 @@ const PostPage = props => {
         <NavBar searchInputText={props.searchInputText}
                  searchChange={props.searchChange}
                  searchSubmit={props.searchSubmit}
-              
+                 handleSignOut={props.handleSignOut}
                  />
         
         <div>

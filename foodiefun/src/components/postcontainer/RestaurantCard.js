@@ -3,9 +3,9 @@ import {Link} from 'react-router-dom';
 
 class RestaurantCard extends React.Component {
 
-    deletePost = event => {
-        event.preventDefault();
+    deletePost = () => {
         this.props.deletePost(this.props.id)
+        this.props.history.push("/")
     }
 
     render() {
