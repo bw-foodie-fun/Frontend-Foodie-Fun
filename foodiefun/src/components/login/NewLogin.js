@@ -47,7 +47,7 @@ export default class NewLogin extends Component {
               onChange={this.handleChanges}
               type="password"
             />
-            <button>Add Review</button>
+            <button>Register</button>
           </form>
         </div>
       </div>
