@@ -1,8 +1,8 @@
 import React from "react";
-import Review from "./Reviews";
+import Review from "./addPost";
 
 
-const ReviewSection = props => {
+const Add = props => {
     return (
       <div className="reviews">
         {props.reviewData && props.reviewData.map((review, index) => (
@@ -77,4 +77,4 @@ const ReviewSection = props => {
   }
 
 
-export default ReviewSection;
+export default Add;

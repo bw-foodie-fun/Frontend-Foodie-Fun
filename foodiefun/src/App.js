@@ -7,6 +7,7 @@ import Login from "./components/login/Login";
 import "./App.css";
 import withAuthenticate from "./components/authenticate/withAuthenticate";
 import NewLogin from "./components/login/NewLogin";
+import Add from "./components/Add/add";
 
 const Auth = withAuthenticate(Login)(PostPage);
 
@@ -24,9 +25,7 @@ class App extends Component {
   }
 
   searchSubmit= event => {
-    console.log('hi')
     event.preventDefault();
-    console.log(this.state.data)
   const filteredData = this.state.data.filter(post =>
      post.restaurant_type.includes(this.state.searchInputText))
   this.setState({
@@ -130,6 +129,10 @@ class App extends Component {
           render={props => <RestaurantPage {...props} data={this.state.data} 
           handleSubmit={this.handleSubmit} handleChange={this.handleChange} 
           inputText={this.inputText} reviewData={this.state.reviewData}/>}
+        />
+        <Route
+          exact path="/add"
+          component={Add}
         />
       </div>
     );
