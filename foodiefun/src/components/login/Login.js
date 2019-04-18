@@ -6,13 +6,13 @@ export default class Login extends Component {
     super(props);
     this.state = {
       username: "",
-      password: "",
+      password: ""
     };
   }
 
   login = e => {
     e.preventDefault();
-    this.props.handleSignIn(this.state)
+    this.props.handleSignIn(this.state);
     this.props.login();
   };
 
@@ -27,14 +27,14 @@ export default class Login extends Component {
           <h1 className="form-heading">Log In:</h1>
           <form onSubmit={this.login} className="login" className="post-form">
             <input
-            className="addPost"
+              className="addPost"
               placeholder="Username"
               name="username"
               value={this.state.username}
               onChange={this.handleChanges}
             />
             <input
-            className="addPost"
+              className="addPost"
               placeholder="Password"
               name="password"
               value={this.state.password}
