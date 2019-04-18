@@ -11,54 +11,57 @@ class NavBar extends React.Component {
   
   render() { 
     return (
-      <div className="nav">
-        
-          <div>FoodieFun!</div>
-        
-        <div><form onSubmit={this.props.searchSubmit}>
-          <input
+     <div className="nav">
+         <span className="foodie"><strong> FoodieFun</strong></span>
+        <div className="search">
+        <form onSubmit={this.props.searchSubmit}>
+          <input className="searchInput"
             type="text"
             placeholder="Search.."
             onChange={this.props.searchChange}
             value={this.props.searchInputText}
           />
-          <button>Submit</button>
+          <button className="sub">Submit</button>
         </form>
         </div>
-<div>
+        <div className="links">
         <Link
+            className="link"
             to={{
               pathname: "/"
             }}
           >
             Home
           </Link>
-          </div>
-          <div>
+          
+          
           <Link
+          className="link"
             to={{
               pathname: "/about"
             }}
           >
             About
           </Link>
-          </div>
-          <div>
+          
+          
           <Link
+          className="link"
             to={{
               pathname: "/add"
             }}
           >
-            Add Post
+            Add
           </Link>
-          </div>
-          <div>
-          <button
+          
+          
+          <button className="logout"
             onClick={this.handleSignOut}
           >
             Logout
-          </button></div>
-        </div>
+          </button>
+          </div></div>
+          
       
     );
   } 
