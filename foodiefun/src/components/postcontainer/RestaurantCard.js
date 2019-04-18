@@ -5,7 +5,6 @@ class RestaurantCard extends React.Component {
 
     deletePost = () => {
         this.props.deletePost(this.props.id)
-        this.props.history.push("/")
     }
 
     render() {

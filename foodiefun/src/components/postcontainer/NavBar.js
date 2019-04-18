@@ -5,9 +5,7 @@ class NavBar extends React.Component {
 
   handleSignOut = () => {
     localStorage.removeItem("token")
-    return (
-      <Redirect to="/"/>
-    )
+    return <Redirect exact to="/"/>
   }
   
   render() { 
