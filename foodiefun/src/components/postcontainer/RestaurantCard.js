@@ -20,8 +20,10 @@ class RestaurantCard extends React.Component {
                 {/* <p>Date Visited: {this.props.date_visited}</p> */}
                 <p><strong>Wait Time: </strong>{this.props.wait_time}</p>
                 <p className="comment"><strong>Comment: </strong>{this.props.item_comment}</p>
-                <Link to={`/edit-post/${this.props.id}`}><button className="sub">Edit</button></Link>
-                <button onClick={this.deletePost}className="sub">Delete</button>
+                <div className="post-buttons">
+                    <Link to={`/edit-post/${this.props.id}`}><button className="sub">Edit</button></Link>
+                    <button onClick={this.deletePost}className="sub">Delete</button>
+                </div>
             </div>
         )
     }

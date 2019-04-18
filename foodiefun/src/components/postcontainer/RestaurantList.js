@@ -1,10 +1,10 @@
 import React from 'react';
 import RestaurantCard from './RestaurantCard';
+import Loader from 'react-loader-spinner';
 
 const RestaurantList = props => {
     const {filtered,data} = props
     const restaurant = filtered.length === 0 ? data : filtered
-    console.log(data)
     if (data.length) {
         return (
             <div className="restaurant-list">
@@ -27,7 +27,7 @@ const RestaurantList = props => {
             </div>
         )
     } else {
-        return <h2>Loading...</h2>
+        return <Loader className="loader-spinner"type="Rings" color="#ff0000" height={80} width={80}/>
     }
 }
 

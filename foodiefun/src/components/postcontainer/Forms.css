@@ -27,7 +27,7 @@
 .btn {
     border: none;
     width: 35%;
-    margin: 0 auto;
+    margin: 10px auto 0 auto;
     height: 30px;
     font-size: 1.5rem;
     color: black;
