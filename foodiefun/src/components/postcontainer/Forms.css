@@ -18,3 +18,19 @@
     border-radius: 5px;
     border: 1px solid #ff0000;
 }
+
+.new {
+    text-decoration: none;
+    color: black;
+}
+
+.btn {
+    border: none;
+    width: 35%;
+    margin: 0 auto;
+    height: 30px;
+    font-size: 1.5rem;
+    color: black;
+    border-radius: 3%;
+    cursor: pointer;
+}

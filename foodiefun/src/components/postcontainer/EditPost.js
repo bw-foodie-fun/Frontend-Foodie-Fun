@@ -102,7 +102,7 @@ class EditPost extends React.Component {
                         placeholder="Comment:"
                         name="item_comment"
                     />
-                    <button type="submit" onClick={this.updatePost}>Save</button>
+                    <button type="submit" onClick={this.updatePost} className="btn">Save</button>
                 </form>
             </>
         )
