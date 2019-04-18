@@ -33,12 +33,14 @@ class RestaurantCard extends React.Component {
           <strong>Comment: </strong>
           {this.props.item_comment}
         </p>
-        <Link to={`/edit-post/${this.props.id}`}>
-          <button className="sub">Edit</button>
-        </Link>
-        <button onClick={this.deletePost} className="sub">
-          Delete
-        </button>
+        <div className="post-buttons">
+            <Link to={`/edit-post/${this.props.id}`}>
+            <button className="sub">Edit</button>
+            </Link>
+            <button onClick={this.deletePost} className="sub">
+            Delete
+            </button>
+        </div>
       </div>
     );
   }
