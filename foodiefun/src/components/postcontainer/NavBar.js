@@ -1,5 +1,7 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+import '../postcontainer/NavBar.css';
 
 class NavBar extends React.Component {
   handleSignOut = () => {
@@ -10,52 +12,46 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="nav">
-        <span className="foodie">
-          <strong> FoodieFun</strong>
-        </span>
-        <div className="search">
-          <form onSubmit={this.props.searchSubmit}>
-            <input
-              className="searchInput"
-              type="text"
-              placeholder="Search.."
-              onChange={this.props.searchChange}
-              value={this.props.searchInputText}
-            />
-            <button className="sub">Submit</button>
-          </form>
-        </div>
-        <div className="links">
-          <Link
-            className="link"
-            to={{
-              pathname: "/"
-            }}
-          >
-            Home
-          </Link>
+        <div className="nav-wrapper">
+          <span className="foodie">
+            <strong> FoodieFun</strong>
+          </span>
+          <div className="search">
+            <form onSubmit={this.props.searchSubmit}>
+              <input
+                className="searchInput"
+                type="text"
+                placeholder="Search.."
+                onChange={this.props.searchChange}
+                value={this.props.searchInputText}
+              />
+              <button className="sub"><i className="fas fa-search"></i></button>
+            </form>
+          </div>
 
-          <Link
-            className="link"
-            to={{
-              pathname: "/about"
-            }}
-          >
-            About
-          </Link>
+          <div className="links">
+            <NavLink
+              className="link"
+              exact to={{
+                pathname: "/"
+              }}
+            >
+              <i className="fas fa-home"></i>
+            </NavLink>
 
-          <Link
-            className="link"
-            to={{
-              pathname: "/add"
-            }}
-          >
-            Add
-          </Link>
+            <NavLink
+              className="link"
+              to={{
+                pathname: "/add"
+              }}
+            >
+              <i className="fas fa-plus"></i>
+            </NavLink>
 
-          <button className="logout" onClick={this.handleSignOut}>
-            Logout
-          </button>
+            <button className="logout" onClick={this.handleSignOut}>
+              <i className="fas fa-sign-out-alt"></i>
+            </button>
+          </div>
         </div>
       </div>
     );

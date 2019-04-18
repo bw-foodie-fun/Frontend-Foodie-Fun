@@ -6,76 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0px;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: #008000;
-  box-shadow: 0px 5px 10px grey;
-}
-
-.foodie {
-  font-size: 3rem;
-  margin: 10px;
-}
-
-.search {
-  margin-top: 40px;
-  margin-left: 80px;
-  width: 100%;
-  text-align: center;
-}
-
-.logout {
-  height: 24px;
-  border: none;
-  background-color: white;
-  box-shadow: 0px 1px 5px white;
-}
-
-.searchInput {
-  height: 20px;
-  margin-right: 5px;
-  box-shadow: 0px 1px 5px white;
-}
-
-.sub {
-  height: 24px;
-  border: none;
-  background-color: white;
-  box-shadow: 0px 1px 5px white;
-  cursor: pointer;
-}
-
-.links {
-  margin: 20px;
-  margin-top: 35px;
-  font-size: 1.2rem;
-  float: right;
-}
-
-.link {
-  padding: 20px;
-  color: black;
-}
-
-img.pic {
-  width: 35%;
-  height: auto;
-}
-
-.post-form {
-  max-width: 700px;
-  margin: 30px auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 1px 2px 2px 2px #d8d8d8;
 }
