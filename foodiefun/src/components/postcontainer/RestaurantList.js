@@ -4,6 +4,7 @@ import RestaurantCard from './RestaurantCard';
 const RestaurantList = props => {
     const {filtered,data} = props
     const restaurant = filtered.length === 0 ? data : filtered
+    console.log(data)
     if (data.length) {
         return (
             <div className="restaurant-list">

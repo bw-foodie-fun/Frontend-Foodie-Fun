@@ -181,9 +181,9 @@ class App extends Component {
 
     axios.post('https://backend-foodie-fun.herokuapp.com/api/meals', post, requestOptions)
       .then(res => {
-        // console.log(res)
+        console.log(res.data)
         this.setState({
-          data: res.data
+          data: [...this.state.data, res.data]
         })
       })
       .catch(err => {
