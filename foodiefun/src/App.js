@@ -74,6 +74,7 @@ class App extends Component {
     //   addData: stateCopy
     // });
     this.addPost(newAdd)
+    this.props.history.push('/');
   };
 
   //connecting to backend
