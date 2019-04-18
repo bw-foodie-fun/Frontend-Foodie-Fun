@@ -25,6 +25,7 @@ const Add = props => {
         props.addData.map((add, index) => (
           <AddPost key={index} addData={add} />
         ))}
+        <h1>Add Post</h1>
       <form action="" onSubmit={props.handleSubmit}>
         <input
           className="addPost"
