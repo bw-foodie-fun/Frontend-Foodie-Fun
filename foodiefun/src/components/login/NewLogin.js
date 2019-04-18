@@ -33,7 +33,7 @@ export default class NewLogin extends Component {
       <div>
         <div>
           <h1>Register:</h1>
-          <form onSubmit={this.newUser}>
+          <form onSubmit={this.newUser} className="post-form">
             <input
               placeholder="Username"
               name="username"
@@ -47,7 +47,7 @@ export default class NewLogin extends Component {
               onChange={this.handleChanges}
               type="password"
             />
-            <button>Register</button>
+            <button className="btn">Register</button>
           </form>
         </div>
       </div>

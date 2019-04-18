@@ -24,24 +24,27 @@ export default class Login extends Component {
     return (
       <div>
         <div>
-          <h1>Log In:</h1>
-          <form onSubmit={this.login} className="login">
+          <h1 className="form-heading">Log In:</h1>
+          <form onSubmit={this.login} className="login" className="post-form">
             <input
+            className="addPost"
               placeholder="Username"
               name="username"
               value={this.state.username}
               onChange={this.handleChanges}
             />
             <input
+            className="addPost"
               placeholder="Password"
               name="password"
               value={this.state.password}
               onChange={this.handleChanges}
               type="password"
             />
-            <button>Login</button>
+            <button className="btn">Login</button>
           </form>
           <Link
+            className="new"
             to={{
               pathname: "/newlogin"
             }}

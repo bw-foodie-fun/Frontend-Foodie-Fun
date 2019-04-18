@@ -98,7 +98,7 @@ const Add = props => {
           placeholder="Comment:"
           name="item_comment"
         />
-        <button>Submit</button>
+        <button className="btn">Submit</button>
       </form>
     </div>
   );
