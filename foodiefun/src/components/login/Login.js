@@ -15,6 +15,7 @@ export default class Login extends Component {
   login = e => {
     e.preventDefault();
     this.props.handleSignIn(this.state)
+    // this.props.login();
   };
 
   handleChanges = e => {

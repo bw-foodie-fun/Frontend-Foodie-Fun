@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class NavBar extends React.Component {
 
   handleSignOut = () => {
     localStorage.removeItem("token")
-    this.props.history.push("/")
+    return (
+      <Redirect to="/"/>
+    )
   }
   
   render() { 

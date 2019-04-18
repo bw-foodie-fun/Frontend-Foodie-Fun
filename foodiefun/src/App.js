@@ -81,14 +81,36 @@ class App extends Component {
       }
     };
 
-    axios
-      .get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
-      .then(res => {
-        this.setState({ data: res.data });
-      })
-      .catch(err => {
-        alert(err);
-      });
+    if (token) { 
+      axios
+        .get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
+        .then(res => {
+          this.setState({ data: res.data });
+        })
+        .catch(err => {
+          alert(err);
+        });
+    }
+  }
+
+  getAllMeals = () => {
+    const token = localStorage.getItem("token");
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    };
+
+    if (token) { 
+      axios
+        .get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
+        .then(res => {
+          this.setState({ data: res.data });
+        })
+        .catch(err => {
+          alert(err);
+        });
+    }
   }
 
   handleSignIn = credentials => {
@@ -99,6 +121,7 @@ class App extends Component {
       )
       .then(res => {
         localStorage.setItem("token", res.data.token);
+        this.getAllMeals();
       })
       .catch(err => {
         alert(err);
@@ -133,8 +156,8 @@ class App extends Component {
     
     axios.put(`https://backend-foodie-fun.herokuapp.com/api/meals/${id}`, updatedPost, requestOptions)
       .then(res => {
-        console.log(res)
         this.setState({data: res.data})
+        this.getAllMeals();
       })
       .catch(err => {
         alert(err);
@@ -177,17 +200,11 @@ class App extends Component {
       )
       .then(res => {
         this.setState({ data: res.data });
+        this.getAllMeals();
       })
       .catch(err => {
         alert(err);
       });
-  };
-
-  // logout
-
-  handleSignOut = () => {
-    localStorage.removeItem("token");
-    this.props.history.push("/");
   };
 
   render() {
@@ -208,6 +225,7 @@ class App extends Component {
               searchChange={this.searchChange}
               searchInputText={this.state.searchInputText}
               deletePost={this.deletePost}
+              getAllMeals={this.getAllMeals}
             />
           )}
         />
@@ -240,6 +258,7 @@ class App extends Component {
               wait={this.state.wait}
               comment={this.state.comment}
               handleSubmit={this.handleSubmit}
+              addPost={this.addPost}
             />
           )}
         />
