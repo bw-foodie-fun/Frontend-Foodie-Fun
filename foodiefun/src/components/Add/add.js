@@ -30,8 +30,8 @@ const Add = props => {
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.restaurantName}
-          name="restaurantName"
+          value={props.restaurant_name}
+          name="restaurant_name"
           placeholder="Restaurant Name"
         />
 
@@ -39,51 +39,62 @@ const Add = props => {
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.restaurantType}
-          name="restaurantType"
+          value={props.restaurant_type}
+          name="restaurant_type"
           placeholder="Restaurant Type"
         />
 
         <input
           type="file"
           onChange={file => submitPicture(file)}
-          name="image"
+          name="item_photo"
+          value={props.item_photo}
+          placeholder="photo"
+        
+        />
+<input
+          className="addPost"
+          type="text"
+          onChange={props.handleChange}
+          value={props.item_name}
+          placeholder="Item Name:"
+          name="item_name"
         />
 
         <input
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.rating}
+          value={props.food_rating}
           placeholder="Rating:"
-          name="rating"
+          name="food_rating"
         />
 
-        <input
+        {/* <input
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.date}
+          value={props.date_visited}
           placeholder="Date Visited:"
-          name="date"
-        />
+          name="date_visited"
+        /> */}
 
         <input
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.wait}
+          value={props.wait_time}
           placeholder="Wait Time:"
-          name="wait"
+          name="wait_time"
         />
 
         <input
           className="addPost"
           type="text"
           onChange={props.handleChange}
-          value={props.comment}
+          value={props.item_comment}
           placeholder="Comment:"
-          name="comment"
+          name="item_comment"
         />
         <button>Submit</button>
       </form>

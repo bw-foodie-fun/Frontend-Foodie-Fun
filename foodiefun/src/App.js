@@ -21,13 +21,14 @@ class App extends Component {
       inputText: "",
       searchInputText: [],
       filtered: [],
-      restaurantName: "",
-      restaurantType: "",
-      rating: "",
-      date: "",
-      wait: "",
-      comment: "",
-      image: ""
+      restaurant_name: "",
+      restaurant_type: "",
+      item_name: "",
+      item_photo: "",
+      food_rating: "",
+      // date_visited: "",
+      wait_time: "",
+      item_comment: "",
     };
   }
 
@@ -58,18 +59,21 @@ class App extends Component {
     const stateCopy = this.state.addData.slice();
     //second create the new review
     const newAdd = {
-      restaurantName: this.state.restaurantName,
-      restaurantType: this.state.restaurantType,
-      rating: this.state.rating,
-      date: this.state.date,
-      wait: this.state.wait,
-      comment: this.state.comment
+      restaurant_name: this.state.restaurant_name,
+      restaurant_type: this.state.restaurant_type,
+      item_name: this.state.item_name,
+      item_photo: this.state.item_photo,
+      food_rating: parseInt(this.state.food_rating),
+      // date_visited: this.state.date_visited,
+      wait_time: this.state.wait_time,
+      item_comment: this.state.item_comment
     };
     stateCopy.push(newAdd);
     //third update the state with setState
-    this.setState({
-      addData: stateCopy
-    });
+    // this.setState({
+    //   addData: stateCopy
+    // });
+    this.addPost(newAdd)
   };
 
   //connecting to backend
@@ -176,7 +180,10 @@ class App extends Component {
 
     axios.post('https://backend-foodie-fun.herokuapp.com/api/meals', post, requestOptions)
       .then(res => {
-        console.log(res)
+        // console.log(res)
+        this.setState({
+          data: res.data
+        })
       })
       .catch(err => {
         alert(err)
@@ -251,12 +258,14 @@ class App extends Component {
               handleChange={this.handleChange}
               inputText={this.state.inputText}
               addData={this.state.addData}
-              restaurantName={this.state.restaurantName}
-              restaurantType={this.state.restaurantType}
-              rating={this.state.rating}
-              date={this.state.date}
-              wait={this.state.wait}
-              comment={this.state.comment}
+              restaurant_name={this.state.restaurant_name}
+              restaurant_type={this.state.restaurant_type}
+              item_name={this.state.item_name}
+              item_photo={this.state.item_photo}
+              food_rating={this.state.food_rating}
+              // date={this.state.date}
+              wait_time={this.state.wait_time}
+              item_comment={this.state.item_comment}
               handleSubmit={this.handleSubmit}
               addPost={this.addPost}
             />
