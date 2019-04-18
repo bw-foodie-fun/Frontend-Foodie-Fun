@@ -10,11 +10,11 @@ class NavBar extends React.Component {
   
   render() { 
     return (
-      <div>
-        <div>
-          <h1>FoodieFun!</h1>
-        </div>
-        <form onSubmit={this.props.searchSubmit}>
+      <div className="nav">
+        
+          <div>FoodieFun!</div>
+        
+        <div><form onSubmit={this.props.searchSubmit}>
           <input
             type="text"
             placeholder="Search.."
@@ -49,6 +49,7 @@ class NavBar extends React.Component {
             Logout
           </button>
         </form>
+        </div>
       </div>
     );
   } 

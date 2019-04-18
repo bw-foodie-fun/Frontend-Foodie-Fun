@@ -13,7 +13,7 @@ class RestaurantCard extends React.Component {
                 <h3>{this.props.restaurant_name}</h3>
                 <p>{this.props.restaurant_type}</p>
                 <p>{this.props.item_name}</p>
-                <img src={this.props.item_photo} alt="Restaurant"/>
+                <img className="pic" src={this.props.item_photo} alt="Restaurant"/>
                 <p>Rating: {this.props.food_rating}</p>
                 <p>Date Visited: {this.props.date_visited}</p>
                 <p>Wait Time: {this.props.wait_time}</p>
