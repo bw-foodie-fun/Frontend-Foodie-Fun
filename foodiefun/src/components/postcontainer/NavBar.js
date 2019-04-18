@@ -5,7 +5,8 @@ class NavBar extends React.Component {
 
   handleSignOut = () => {
     localStorage.removeItem("token")
-    return <Redirect exact to="/"/>
+    window.location.reload();
+
   }
   
   render() { 
@@ -22,13 +23,18 @@ class NavBar extends React.Component {
             value={this.props.searchInputText}
           />
           <button>Submit</button>
-          <Link
+        </form>
+        </div>
+<div>
+        <Link
             to={{
               pathname: "/"
             }}
           >
             Home
           </Link>
+          </div>
+          <div>
           <Link
             to={{
               pathname: "/about"
@@ -36,6 +42,8 @@ class NavBar extends React.Component {
           >
             About
           </Link>
+          </div>
+          <div>
           <Link
             to={{
               pathname: "/add"
@@ -43,14 +51,15 @@ class NavBar extends React.Component {
           >
             Add Post
           </Link>
+          </div>
+          <div>
           <button
             onClick={this.handleSignOut}
           >
             Logout
-          </button>
-        </form>
+          </button></div>
         </div>
-      </div>
+      
     );
   } 
 };
