@@ -9,31 +9,32 @@ const withAuthenticate = Login => PostPage =>
       };
     }
 
-        login = () => {
-            this.setState({
-                loggedIn: true
-            });
-        }
+    login = () => {
+      this.setState({
+        loggedIn: true
+      });
+    };
 
-        render() {
-            return (
-                this.state.loggedIn === false ?
-                    <Login
-                        loggedIn={this.state.loggedIn}
-                        login={this.login}
-                        handleSignIn={this.props.handleSignIn}
-                    /> : <PostPage
-                        {...this.props}
-                        account={this.props.account}
-                        data={this.props.data} 
-                        searchSubmit={this.props.searchSubmit}
-                        searchChange={this.props.searchChange}
-                        filtered={this.props.filtered}
-                        searchInputText={this.props.searchInputText}
-                        deletePost={this.props.deletePost}
-                    />
-            );
-        }
+    render() {
+      return this.state.loggedIn === false ? (
+        <Login
+          loggedIn={this.state.loggedIn}
+          login={this.login}
+          handleSignIn={this.props.handleSignIn}
+        />
+      ) : (
+        <PostPage
+          {...this.props}
+          account={this.props.account}
+          data={this.props.data}
+          searchSubmit={this.props.searchSubmit}
+          searchChange={this.props.searchChange}
+          filtered={this.props.filtered}
+          searchInputText={this.props.searchInputText}
+          deletePost={this.props.deletePost}
+        />
+      );
+    }
 
     render() {
       return this.state.loggedIn === false ? (
@@ -50,9 +51,9 @@ const withAuthenticate = Login => PostPage =>
           searchChange={this.props.searchChange}
           filtered={this.props.filtered}
           searchInputText={this.props.searchInputText}
-          handleChange ={this.props.handleChange}
+          handleChange={this.props.handleChange}
           handleSubmit={this.props.handleSubmit}
-          addData = {this.props.addData}
+          addData={this.props.addData}
           deletePost={this.props.deletePost}
         />
       );

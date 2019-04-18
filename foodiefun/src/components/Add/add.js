@@ -20,12 +20,12 @@ const Add = props => {
   console.log(props);
   return (
     <div className="post">
-    <NavBar/>
+      <NavBar />
       {props.addData &&
         props.addData.map((add, index) => (
           <AddPost key={index} addData={add} />
         ))}
-        <h2 className="form-heading">Add Post</h2>
+      <h2 className="form-heading">Add Post</h2>
       <form action="" onSubmit={props.handleSubmit} className="post-form">
         <input
           className="addPost"
@@ -60,7 +60,6 @@ const Add = props => {
           name="item_photo"
           value={props.item_photo}
           placeholder="Image url:"
-        
         />
 
         <input

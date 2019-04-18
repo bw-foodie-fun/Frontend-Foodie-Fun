@@ -5,7 +5,7 @@ import PostPage from "./components/postcontainer/PostPage";
 import EditPost from "./components/postcontainer/EditPost";
 import Login from "./components/login/Login";
 import "./App.css";
-import "./components/postcontainer/Forms.css"
+import "./components/postcontainer/Forms.css";
 import withAuthenticate from "./components/authenticate/withAuthenticate";
 import NewLogin from "./components/login/NewLogin";
 import Add from "./components/Add/add";
@@ -29,7 +29,7 @@ class App extends Component {
       food_rating: "",
       // date_visited: "",
       wait_time: "",
-      item_comment: "",
+      item_comment: ""
     };
   }
 
@@ -49,7 +49,7 @@ class App extends Component {
     });
   };
 
-  //add functions wip
+  //add functions
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -74,8 +74,8 @@ class App extends Component {
     // this.setState({
     //   addData: stateCopy
     // });
-    this.addPost(newAdd)
-    this.props.history.push('/');
+    this.addPost(newAdd);
+    this.props.history.push("/");
   };
 
   //connecting to backend
@@ -87,11 +87,16 @@ class App extends Component {
       }
     };
 
-    if (token) { 
+
+//grabs meal data from be
+    if (token) {
       axios
-        .get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
+        .get(
+          "https://backend-foodie-fun.herokuapp.com/api/meals",
+          requestOptions
+        )
         .then(res => {
-          console.log(res)
+          console.log(res);
           this.setState({ data: res.data });
         })
         .catch(err => {
@@ -108,9 +113,12 @@ class App extends Component {
       }
     };
 
-    if (token) { 
+    if (token) {
       axios
-        .get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
+        .get(
+          "https://backend-foodie-fun.herokuapp.com/api/meals",
+          requestOptions
+        )
         .then(res => {
           this.setState({ data: res.data });
         })
@@ -118,7 +126,9 @@ class App extends Component {
           alert(err);
         });
     }
-  }
+  };
+
+//signin
 
   handleSignIn = credentials => {
     axios
@@ -134,6 +144,8 @@ class App extends Component {
         alert(err);
       });
   };
+
+//register
 
   handleSignUp = newCredentials => {
     axios
@@ -158,12 +170,17 @@ class App extends Component {
       headers: {
         authorization: token
       }
-    }
-    console.log(id, updatedPost)
-    
-    axios.put(`https://backend-foodie-fun.herokuapp.com/api/meals/${id}`, updatedPost, requestOptions)
+    };
+    console.log(id, updatedPost);
+
+    axios
+      .put(
+        `https://backend-foodie-fun.herokuapp.com/api/meals/${id}`,
+        updatedPost,
+        requestOptions
+      )
       .then(res => {
-        this.setState({data: res.data})
+        this.setState({ data: res.data });
         this.getAllMeals();
       })
       .catch(err => {
@@ -174,24 +191,29 @@ class App extends Component {
   // add post
 
   addPost = post => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const requestOptions = {
       headers: {
         authorization: token
       }
-    }
+    };
 
-    axios.post('https://backend-foodie-fun.herokuapp.com/api/meals', post, requestOptions)
+    axios
+      .post(
+        "https://backend-foodie-fun.herokuapp.com/api/meals",
+        post,
+        requestOptions
+      )
       .then(res => {
-        console.log(res.data)
+        console.log(res.data);
         this.setState({
           data: [...this.state.data, res.data]
-        })
+        });
       })
       .catch(err => {
-        alert(err)
-      })
-  }
+        alert(err);
+      });
+  };
 
   // delete post
 
@@ -245,7 +267,7 @@ class App extends Component {
           render={props => (
             <NewLogin {...props} handleSignUp={this.handleSignUp} />
           )}
-//handleSignUp={this.handleSignUp}
+          //handleSignUp={this.handleSignUp}
         />
 
         <Route
