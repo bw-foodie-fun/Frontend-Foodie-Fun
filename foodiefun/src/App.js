@@ -90,6 +90,7 @@ class App extends Component {
       axios
         .get("https://backend-foodie-fun.herokuapp.com/api/meals", requestOptions)
         .then(res => {
+          console.log(res)
           this.setState({ data: res.data });
         })
         .catch(err => {

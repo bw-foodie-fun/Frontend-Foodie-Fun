@@ -18,9 +18,9 @@ const RestaurantList = props => {
                         item_name={item.item_name}
                         item_photo={item.item_photo}
                         food_rating={item.food_rating}
-                        date_visited={item.date_visited}
+                        // date_visited={item.date_visited}
                         wait_time={item.wait_time}
-                        comment={item.comment}
+                        comment={item.item_comment}
                         deletePost={props.deletePost}
                     />
                 ))}
