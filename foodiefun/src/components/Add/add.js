@@ -25,8 +25,8 @@ const Add = props => {
         props.addData.map((add, index) => (
           <AddPost key={index} addData={add} />
         ))}
-        <h1>Add Post</h1>
-      <form action="" onSubmit={props.handleSubmit}>
+        <h2 className="form-heading">Add Post</h2>
+      <form action="" onSubmit={props.handleSubmit} className="post-form">
         <input
           className="addPost"
           type="text"
@@ -46,20 +46,21 @@ const Add = props => {
         />
 
         <input
-          type="text"
-          onChange={props.handleChange}
-          name="item_photo"
-          value={props.item_photo}
-          placeholder="photo"
-        
-        />
-<input
           className="addPost"
           type="text"
           onChange={props.handleChange}
           value={props.item_name}
           placeholder="Item Name (Required):"
           name="item_name"
+        />
+
+        <input
+          type="text"
+          onChange={props.handleChange}
+          name="item_photo"
+          value={props.item_photo}
+          placeholder="Image url:"
+        
         />
 
         <input

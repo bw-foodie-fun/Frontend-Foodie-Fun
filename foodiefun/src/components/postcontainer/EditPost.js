@@ -51,33 +51,33 @@ class EditPost extends React.Component {
         return (
             <>
                 <NavBar/>
-                <form className="edit-post-form">
-                    <h3>Update Post</h3>
-                    Restaurant Name: <input
+                <h2 className="form-heading">Update Post</h2>
+                <form className="post-form">
+                    <input
                         type="text"
                         name="restaurant_name"
                         onChange={this.handleChange}
                         placeholder="Restaurant Name:"
                     />
-                    Type: <input
+                    <input
                         type="text"
                         name="restaurant_type"
                         onChange={this.handleChange}
                         placeholder="Restaurant Type:"
                     />
-                    Item: <input
+                    <input
                         type="text"
                         name="item_name"
                         onChange={this.handleChange}
                         placeholder="Item Name (Required): "
                     />
-                    Image: <input
+                    <input
                         type="text"
                         name="item_photo"
                         onChange={this.handleChange}
                         placeholder="Image url:"
                     />
-                    Rating: <input
+                    <input
                         type="text"
                         name="food_rating"
                         onChange={this.handleChange}
@@ -88,7 +88,7 @@ class EditPost extends React.Component {
                         name="date_visited"
                         onChange={this.handleChange}
                     /> */}
-                    Wait Time: <input
+                    <input
                         type="text"
                         name="wait_time"
                         onChange={this.handleChange}

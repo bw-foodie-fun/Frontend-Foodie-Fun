@@ -5,6 +5,7 @@ import PostPage from "./components/postcontainer/PostPage";
 import EditPost from "./components/postcontainer/EditPost";
 import Login from "./components/login/Login";
 import "./App.css";
+import "./components/postcontainer/Forms.css"
 import withAuthenticate from "./components/authenticate/withAuthenticate";
 import NewLogin from "./components/login/NewLogin";
 import Add from "./components/Add/add";
