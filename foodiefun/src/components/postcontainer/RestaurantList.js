@@ -20,7 +20,7 @@ const RestaurantList = props => {
                         food_rating={item.food_rating}
                         // date_visited={item.date_visited}
                         wait_time={item.wait_time}
-                        comment={item.item_comment}
+                        item_comment={item.item_comment}
                         deletePost={props.deletePost}
                     />
                 ))}

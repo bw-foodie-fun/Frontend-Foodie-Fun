@@ -32,7 +32,7 @@ const Add = props => {
           onChange={props.handleChange}
           value={props.restaurant_name}
           name="restaurant_name"
-          placeholder="Restaurant Name"
+          placeholder="Restaurant Name:"
         />
 
         <input
@@ -41,12 +41,12 @@ const Add = props => {
           onChange={props.handleChange}
           value={props.restaurant_type}
           name="restaurant_type"
-          placeholder="Restaurant Type"
+          placeholder="Restaurant Type:"
         />
 
         <input
-          type="file"
-          onChange={file => submitPicture(file)}
+          type="text"
+          onChange={props.handleChange}
           name="item_photo"
           value={props.item_photo}
           placeholder="photo"
@@ -57,7 +57,7 @@ const Add = props => {
           type="text"
           onChange={props.handleChange}
           value={props.item_name}
-          placeholder="Item Name:"
+          placeholder="Item Name (Required):"
           name="item_name"
         />
 
