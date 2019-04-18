@@ -1,54 +1,54 @@
 .restaurant-card {
-    max-width: 700px;
-    font-size: 0.95rem;
-    margin: auto;
-    padding: 25px 20px;
-    box-shadow: 1px 2px 2px 2px #d8d8d8;
-    margin-top: 20px;
-    text-align: left;
-    line-height: 0.7;
+  max-width: 700px;
+  font-size: 0.95rem;
+  margin: auto;
+  padding: 25px 20px;
+  box-shadow: 1px 2px 2px 2px #d8d8d8;
+  margin-top: 20px;
+  text-align: left;
+  line-height: 0.7;
 }
 
 .restaurant-card h3 {
-    margin: 0;
-    font-size: 1.4rem;
-    line-height: 1.1;
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.1;
 }
 
 .restaurant-card .green {
-    color: #008000;
-    font-size: 1.2rem;
-    font-weight: bold;
+  color: #008000;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .restaurant-card .item {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .restaurant-card img {
-   width: 100%;
+  width: 100%;
 }
 
 .restaurant-card strong {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .restaurant-card .inline {
-    display: inline-block;
-    margin: 20px 0 0 0;
+  display: inline-block;
+  margin: 20px 0 0 0;
 }
 
 .restaurant-card .good {
-    color: #008000;
-    font-weight: bold;
+  color: #008000;
+  font-weight: bold;
 }
 
 .restaurant-card .bad {
-    color: #ff0000;
-    font-weight: bold;
+  color: #ff0000;
+  font-weight: bold;
 }
 
 .comment {
-    line-height: 1.2;
-    font-size: 1rem;
+  line-height: 1.2;
+  font-size: 1rem;
 }

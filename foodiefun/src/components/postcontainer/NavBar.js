@@ -2,30 +2,31 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 
 class NavBar extends React.Component {
-
   handleSignOut = () => {
-    localStorage.removeItem("token")
+    localStorage.removeItem("token");
     window.location.reload();
+  };
 
-  }
-  
-  render() { 
+  render() {
     return (
-     <div className="nav">
-         <span className="foodie"><strong> FoodieFun</strong></span>
+      <div className="nav">
+        <span className="foodie">
+          <strong> FoodieFun</strong>
+        </span>
         <div className="search">
-        <form onSubmit={this.props.searchSubmit}>
-          <input className="searchInput"
-            type="text"
-            placeholder="Search.."
-            onChange={this.props.searchChange}
-            value={this.props.searchInputText}
-          />
-          <button className="sub">Submit</button>
-        </form>
+          <form onSubmit={this.props.searchSubmit}>
+            <input
+              className="searchInput"
+              type="text"
+              placeholder="Search.."
+              onChange={this.props.searchChange}
+              value={this.props.searchInputText}
+            />
+            <button className="sub">Submit</button>
+          </form>
         </div>
         <div className="links">
-        <Link
+          <Link
             className="link"
             to={{
               pathname: "/"
@@ -33,38 +34,32 @@ class NavBar extends React.Component {
           >
             Home
           </Link>
-          
-          
+
           <Link
-          className="link"
+            className="link"
             to={{
               pathname: "/about"
             }}
           >
             About
           </Link>
-          
-          
+
           <Link
-          className="link"
+            className="link"
             to={{
               pathname: "/add"
             }}
           >
             Add
           </Link>
-          
-          
-          <button className="logout"
-            onClick={this.handleSignOut}
-          >
+
+          <button className="logout" onClick={this.handleSignOut}>
             Logout
           </button>
-          </div></div>
-          
-      
+        </div>
+      </div>
     );
-  } 
-};
+  }
+}
 
 export default NavBar;
