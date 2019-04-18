@@ -17,7 +17,7 @@ class RestaurantCard extends React.Component {
                 <p>Rating: {this.props.food_rating}</p>
                 {/* <p>Date Visited: {this.props.date_visited}</p> */}
                 <p>Wait Time: {this.props.wait_time}</p>
-                <p>Comment: {this.props.comment}</p>
+                <p>Comment: {this.props.item_comment}</p>
                 <Link to={`/edit-post/${this.props.id}`}><button>Edit</button></Link>
                 <button onClick={this.deletePost}>Delete Post</button>
             </div>

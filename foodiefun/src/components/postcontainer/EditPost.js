@@ -44,16 +44,7 @@ class EditPost extends React.Component {
             food_rating: parseInt(this.state.food_rating)
         }
         this.props.editPost(id, meal);
-        this.setState({
-            restaurant_name: '',
-            restaurant_type: '',
-            item_name: '',
-            item_photo: '',
-            food_rating: '',
-            date_visited: '',
-            wait_time: '',
-            item_comment: ''
-        })
+        this.props.history.push('/');
     }
 
     render() {
@@ -66,26 +57,31 @@ class EditPost extends React.Component {
                         type="text"
                         name="restaurant_name"
                         onChange={this.handleChange}
+                        placeholder="Restaurant Name:"
                     />
                     Type: <input
                         type="text"
                         name="restaurant_type"
                         onChange={this.handleChange}
+                        placeholder="Restaurant Type:"
                     />
                     Item: <input
                         type="text"
                         name="item_name"
                         onChange={this.handleChange}
+                        placeholder="Item Name (Required): "
                     />
                     Image: <input
-                        type="file"
+                        type="text"
                         name="item_photo"
                         onChange={this.handleChange}
+                        placeholder="Image url:"
                     />
                     Rating: <input
                         type="text"
                         name="food_rating"
                         onChange={this.handleChange}
+                        placeholder="Rating:"
                     />
                     {/* Last Visited: <input
                         type="text"
@@ -96,6 +92,15 @@ class EditPost extends React.Component {
                         type="text"
                         name="wait_time"
                         onChange={this.handleChange}
+                        placeholder="Wait Time:"
+                    />
+                    <input
+                        className="addPost"
+                        type="text"
+                        onChange={this.props.handleChange}
+                        value={this.props.item_comment}
+                        placeholder="Comment:"
+                        name="item_comment"
                     />
                     <button type="submit" onClick={this.updatePost}>Save</button>
                 </form>
