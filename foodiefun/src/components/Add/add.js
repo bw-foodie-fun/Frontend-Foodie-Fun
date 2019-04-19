@@ -1,20 +1,20 @@
 import React from "react";
 import AddPost from "./addPost";
-import axios from "axios";
+// import axios from "axios";
 import NavBar from "../postcontainer/NavBar";
 
-async function submitPicture(e) {
-  const file = e.target.files[0];
-  const data = new FormData();
-  data.append("file", file);
-  data.append("upload_preset", "foodie-fun");
-  let {
-    data: { url, secure_url }
-  } = await axios.post(
-    "https://api.cloudinary.com/v1_1/foodie-fun/image/upload",
-    data
-  );
-}
+// async function submitPicture(e) {
+//   const file = e.target.files[0];
+//   const data = new FormData();
+//   data.append("file", file);
+//   data.append("upload_preset", "foodie-fun");
+//   let {
+//     data: { url, secure_url }
+//   } = await axios.post(
+//     "https://api.cloudinary.com/v1_1/foodie-fun/image/upload",
+//     data
+//   );
+// }
 
 const Add = props => {
   console.log(props);
@@ -70,15 +70,6 @@ const Add = props => {
           placeholder="Rating:"
           name="food_rating"
         />
-
-        {/* <input
-          className="addPost"
-          type="text"
-          onChange={props.handleChange}
-          value={props.date_visited}
-          placeholder="Date Visited:"
-          name="date_visited"
-        /> */}
 
         <input
           className="addPost"
