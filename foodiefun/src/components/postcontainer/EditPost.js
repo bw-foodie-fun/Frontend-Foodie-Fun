@@ -1,19 +1,19 @@
 import React from "react";
 import NavBar from "../postcontainer/NavBar";
-import axios from "axios";
+// import axios from "axios";
 
-async function submitPicture(e) {
-  const file = e.target.files[0];
-  const data = new FormData();
-  data.append("file", file);
-  data.append("upload_preset", "foodie-fun");
-  let {
-    data: { url, secure_url }
-  } = await axios.post(
-    "https://api.cloudinary.com/v1_1/foodie-fun/image/upload",
-    data
-  );
-}
+// async function submitPicture(e) {
+//   const file = e.target.files[0];
+//   const data = new FormData();
+//   data.append("file", file);
+//   data.append("upload_preset", "foodie-fun");
+//   let {
+//     data: { url, secure_url }
+//   } = await axios.post(
+//     "https://api.cloudinary.com/v1_1/foodie-fun/image/upload",
+//     data
+//   );
+// }
 
 class EditPost extends React.Component {
   constructor(props) {
@@ -24,7 +24,6 @@ class EditPost extends React.Component {
       item_name: "",
       item_photo: "",
       food_rating: null,
-      // date_visited: '',
       wait_time: "",
       item_comment: ""
     };
@@ -83,11 +82,6 @@ class EditPost extends React.Component {
             onChange={this.handleChange}
             placeholder="Rating:"
           />
-          {/* Last Visited: <input
-                        type="text"
-                        name="date_visited"
-                        onChange={this.handleChange}
-                    /> */}
           <input
             type="text"
             name="wait_time"

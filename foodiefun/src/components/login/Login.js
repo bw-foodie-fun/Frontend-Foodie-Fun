@@ -25,7 +25,7 @@ export default class Login extends Component {
       <div>
         <div>
           <h1 className="form-heading">Log In:</h1>
-          <form onSubmit={this.login} className="login" className="post-form">
+          <form onSubmit={this.login} className="login post-form">
             <input
               className="addPost"
               placeholder="Username"

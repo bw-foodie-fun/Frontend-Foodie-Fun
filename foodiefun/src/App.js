@@ -26,7 +26,6 @@ class App extends Component {
       item_name: "",
       item_photo: "",
       food_rating: "",
-      // date_visited: "",
       wait_time: "",
       item_comment: ""
     };
@@ -95,11 +94,10 @@ class App extends Component {
           requestOptions
         )
         .then(res => {
-          console.log(res);
           this.setState({ data: res.data });
         })
         .catch(err => {
-          alert(err);
+          console.log(err);
         });
     }
   }
@@ -122,7 +120,7 @@ class App extends Component {
           this.setState({ data: res.data });
         })
         .catch(err => {
-          alert(err);
+          console.log(err);
         });
     }
   };
@@ -140,7 +138,7 @@ class App extends Component {
         this.getAllMeals();
       })
       .catch(err => {
-        alert(err);
+        console.log(err);
       });
   };
 
@@ -157,7 +155,7 @@ class App extends Component {
       })
       .catch(err => {
         console.log(err);
-        alert("check da console");
+        console.log(err);
       });
   };
 
@@ -183,7 +181,7 @@ class App extends Component {
         this.getAllMeals();
       })
       .catch(err => {
-        alert(err);
+        console.log(err);
       });
   };
 
@@ -210,7 +208,7 @@ class App extends Component {
         });
       })
       .catch(err => {
-        alert(err);
+        console.log(err);
       });
   };
 

@@ -24,27 +24,6 @@ const withAuthenticate = Login => PostPage =>
         />
       ) : (
         <PostPage
-          {...this.props}
-          account={this.props.account}
-          data={this.props.data}
-          searchSubmit={this.props.searchSubmit}
-          searchChange={this.props.searchChange}
-          filtered={this.props.filtered}
-          searchInputText={this.props.searchInputText}
-          deletePost={this.props.deletePost}
-        />
-      );
-    }
-
-    render() {
-      return this.state.loggedIn === false ? (
-        <Login
-          loggedIn={this.state.loggedIn}
-          login={this.login}
-          handleSignIn={this.props.handleSignIn}
-        />
-      ) : (
-        <PostPage
           account={this.props.account}
           data={this.props.data}
           searchSubmit={this.props.searchSubmit}
